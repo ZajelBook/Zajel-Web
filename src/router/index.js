@@ -1,15 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Book from '../components/books/List.vue';
+import SignIn from '../components/users/SignIn.vue';
+import SignUp from '../components/users/SignUp.vue';
+import BookDetails from '../components/books/BookDetails.vue'
+import NewBook from '../components/books/NewBook.vue'
+import Requests from '../components/books/Requests.vue'
+import Conversations from '../components/conversations/List.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+  { path: '/', component: Home },
+  { path: '/books', component: Book },
+  { path: '/login', component: SignIn },
+  { path: '/signup', component: SignUp },
+  { path: '/books/new', component: NewBook },
+  { path: '/books/:id', component: BookDetails },
+  { path: '/book_activities', component: Requests },
+  { path: '/conversations', component: Conversations },
   {
     path: '/about',
     name: 'About',
