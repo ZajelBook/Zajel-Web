@@ -1,32 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <app-header></app-header>
+    <router-view></router-view>
+    <app-footer></app-footer>
   </div>
 </template>
 
+<script>
+  import 'jquery-ui'
+  import 'bootstrap'
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  // import 'modernizr'
+  import '@/assets/js/imagesloaded.pkgd.min.js'
+  import '@/assets/js/wow.min.js'
+  import '@/assets/js/jquery.slicknav.min.js'
+  import '@/assets/js/plugins.js'
+  import '@/assets/js/main.js'
+  import 'vue-select/dist/vue-select.css';
+
+  import Header from './components/Header.vue';
+  import Footer from './components/Footer.vue';
+
+  export default {
+    components: {
+      appHeader: Header,
+      appFooter: Footer
+    }
+  }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  @import './assets/css/font-awesome.min.css';
+  @import './assets/css/themify-icons.css';
+  @import './assets/css/flaticon.css';
+  @import './assets/css/animate.css';
+  @import './assets/css/slick.css';
+  @import './assets/css/slicknav.css';
+  @import './assets/css/style.css';
 </style>
+
