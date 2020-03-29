@@ -7,9 +7,9 @@
             <div class="row align-items-center">
               <div class="col-xl-3 col-lg-2">
                 <div class="logo">
-                  <a href="index.html">
+                  <router-link to="/">
                     <img src="@/assets/img/logo.png" alt="">
-                  </a>
+                  </router-link>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-7">
@@ -20,7 +20,6 @@
                       <li><router-link to="/books">books</router-link></li>
                       <li><router-link to="/book_activities">Requests</router-link></li>
                       <li><router-link to="/books/new">Add new book</router-link></li>
-                      <li> <router-link to="/conversations">Conversations</router-link></li>
                     </ul>
                   </nav>
                 </div>

@@ -23,11 +23,11 @@
         </label>
       </div>
       <div class="text-center">
-        <button class="genric-btn primary e-large circle btn-block text-center" type="submit">Sign in</button>
+        <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Sign in</button>
+        <p><span>Don't have an account? </span></p><u><router-link to="/signup" class="text-center">Register here</router-link></u>
+
       </div>
     </form>
-
-    <router-link to="/signup"> Sign up</router-link>
   </div>
 </template>
 
@@ -35,8 +35,8 @@
 export default {
   data (){
     return {
-        email: 'mrahmoun93@gmail.com',
-        password: '00000000'
+        email: '',
+        password: ''
     }
   },
   created () {
@@ -59,7 +59,7 @@ export default {
 
         localStorage.bearer = response.headers['map']['token-type'];
 
-        this.$store.commit('signIn')
+        this.$store.commit('signIn', {user_id: response.data.data.id})
 
         this.$router.replace('/');
       }, error => {

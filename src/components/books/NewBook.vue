@@ -107,8 +107,8 @@
 
       },
       checkSignedIn () {
-        if (!localStorage.signedIn) {
-          this.$router.replace('/login');
+        if (!this.$store.state.signedIn) {
+          this.$router.push('/login')
           return false;
         } else {
           return true;
