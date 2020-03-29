@@ -3,6 +3,7 @@ import Paginate from 'vuejs-paginate'
 import vSelect from 'vue-select'
 import App from './App.vue';
 import ActionCableVue from 'actioncable-vue';
+import VCalendar from 'v-calendar';
 import Vue from "vue";
 import './registerServiceWorker'
 import store from './store'
@@ -11,6 +12,7 @@ import router from './router'
 Vue.config.productionTip = false
 
 Vue.use(VueResource);
+Vue.use(VCalendar);
 Vue.component('paginate', Paginate);
 Vue.component('v-select', vSelect);
 Vue.use(ActionCableVue, {
@@ -22,6 +24,7 @@ Vue.use(ActionCableVue, {
 
 
 Vue.http.options.root = "http://localhost:3000/api/";
+// Vue.http.options.root = "https://zajel.mylestone.life/api/";
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('access-token', localStorage.accessToken);
   request.headers.set('client', localStorage.client);

@@ -20,7 +20,7 @@ const routes = [
   { path: '/books/new', component: NewBook },
   { path: '/books/:id', component: BookDetails },
   { path: '/book_activities', component: Requests },
-  { path: '/conversations', component: Conversations },
+  { path: '/conversations/:id/messages', component: Conversations },
   {
     path: '/about',
     name: 'About',
