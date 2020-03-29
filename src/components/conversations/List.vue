@@ -88,6 +88,7 @@
       }
     },
     mounted() {
+      this.$cable._connect('ws://localhost:3000/cable?access-token='+this.$store.getters.headers.accessToken+'&client='+this.$store.getters.headers.client+'&uid='+this.$store.getters.headers.uid)
       this.$cable.subscribe({
         channel: 'ConversationChannel',
         id: this.$route.params.id
@@ -95,7 +96,7 @@
     },
     methods: {
       fetchData(pageNumber) {
-        this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: pageNumber, per_page: 50}})
+        this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: pageNumber, per_page: 200}})
           .then(response => {
             this.messages = this.messages.concat(response.data.messages)
             this.bookActivity = response.data.book_activity

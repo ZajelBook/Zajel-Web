@@ -59,7 +59,14 @@ export default {
 
         localStorage.bearer = response.headers['map']['token-type'];
 
-        this.$store.commit('signIn', {user_id: response.data.data.id})
+        this.$store.commit('signIn', {
+          user_id: response.data.data.id,
+          accessToken: localStorage.accessToken,
+          client: localStorage.client,
+          uid: localStorage.uid,
+          expiry: localStorage.expiry,
+          bearer: localStorage.bearer
+        })
 
         this.$router.replace('/');
       }, error => {
