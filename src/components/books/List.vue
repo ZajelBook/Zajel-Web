@@ -51,13 +51,37 @@ export default {
   data(){
     return {
       books: [],
-      metadata: {}
+      metadata: {},
+      location_data: {
+        location: null,
+        gettingLocation: false,
+        errorStr: null
+      }
     }
   },
   created () {
+    this.getLocation();
     this.fetchData()
   },
   methods: {
+    getLocation(){
+      if(!("geolocation" in navigator)) {
+        this.location_data.errorStr = 'Geolocation is not available.';
+        return;
+      }
+
+      this.location_data.gettingLocation = true;
+      navigator.geolocation.getCurrentPosition(pos => {
+                this.location_data.gettingLocation = false;
+                this.location_data.location = pos;
+              }, err => {
+                this.location_data.gettingLocation = false;
+                this.location_data.errorStr = err.message;
+              }
+      )
+
+      console.log('location: '+this.location_data.location)
+    },
     fetchData(pageNumber) {
       this.$http.get('books', {params: {page: pageNumber, per_page: 21}})
       .then(response => {
