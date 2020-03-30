@@ -55,11 +55,7 @@ export default {
     }
   },
   created () {
-    if(this.$store.state.signedIn){
-      this.fetchData()
-    } else {
-      this.$router.push('/login')
-    }
+    this.fetchData()
   },
   methods: {
     fetchData(pageNumber) {

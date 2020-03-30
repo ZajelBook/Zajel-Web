@@ -14,11 +14,13 @@ export default new Vuex.Store({
     bearer: localStorage.bearer
   },
   getters: {
-    headers: state => {
+    data: state => {
       return {
         accessToken: state.accessToken,
         uid: state.uid,
-        client: state.client
+        client: state.client,
+        signedIn: state.signedIn,
+        user_id: state.user_id
       }
     }
   },

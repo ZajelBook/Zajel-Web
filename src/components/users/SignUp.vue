@@ -13,7 +13,7 @@
       </div>
       <div class="section-top-border">
           <div class="row">
-              <div class="col-lg-6 col-md-6 offset-3">
+              <div class="col-lg-6 col-md-6 offset-md-3 col-10 offset-1">
                   <u><h3 class="mb-30">Register for new account</h3></u>
                   <form @submit.prevent="signUp">
                       <div class="mb-3">
@@ -112,7 +112,7 @@ export default {
     },
 
     checkSignedIn () {
-      if (localStorage.signedIn === 'true') {
+      if (this.$store.getters.data.signedIn === 'true') {
           this.$router.replace('/');
       }
     }

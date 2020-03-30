@@ -12,30 +12,22 @@
                   </router-link>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-7">
+              <div class="col-xl-6 col-lg-9">
                 <div class="main-menu  d-none d-lg-block">
                   <nav>
                     <ul id="navigation">
                       <li><router-link to="/">Home</router-link></li>
                       <li><router-link to="/books">books</router-link></li>
-                      <li><router-link to="/book_activities">Requests</router-link></li>
-                      <li><router-link to="/books/new">Add new book</router-link></li>
+                      <li v-if="!this.$store.getters.data.signedIn"><router-link to="/login">Sign in</router-link></li>
+                      <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/books/new">Add new book</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><a href="#" @click.prevent="signOut">Sign Out</a></li>
                     </ul>
                   </nav>
                 </div>
               </div>
 
-              <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                <div class="Appointment">
-                  <div class="book_btn d-none d-lg-block">
-                    <router-link to="/login" v-if="!signedIn()">Sign in</router-link>
-                  </div>
-                  <div class="book_btn d-none d-lg-block">
-                    <router-link to="/signup" v-if="!signedIn()">Sign up</router-link>
-                    <a href="#" @click.prevent="signOut" v-if="signedIn()">Sign Out</a>
-                  </div>
-                </div>
-              </div>
               <div class="col-12">
                 <div class="mobile_menu d-block d-lg-none"></div>
               </div>
@@ -51,9 +43,6 @@
 <script>
 export default {
     methods: {
-        signedIn () {
-            return this.$store.state.signedIn
-        },
         signOut () {
             this.$http.delete('auth/sign_out')
             .then(response => {

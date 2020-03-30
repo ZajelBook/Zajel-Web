@@ -71,9 +71,11 @@
                       <p>Requested by: <u>{{received.borrower.name}}</u></p>
                       <p>Requested at: <u>{{received.created_at}}</u></p>
 
-                      <button @click="accept" :id="received.id" :class="'genric-btn info circle accept_' + received.id" v-show="received.status === 'pending'">Accept</button>
-                      <button @click="reject" :id="received.id" :class="'genric-btn primary circle reject_' + received.id" v-show="received.status === 'pending'">Reject</button>
-                      <router-link :id="received.conversation_id" class="genric-btn success circle" v-show="received.status === 'accepted'" :to="'/conversations/' + received.conversation_id +'/messages'">Go to Conversation</router-link>
+                      <div class="text-center">
+                        <button @click="accept" :id="received.id" :class="'m-2 genric-btn info circle accept_' + received.id" v-show="received.status === 'pending'">Accept</button>
+                        <button @click="reject" :id="received.id" :class="'m-2 genric-btn primary circle reject_' + received.id" v-show="received.status === 'pending'">Reject</button>
+                        <router-link :id="received.conversation_id" class="genric-btn success circle" v-show="received.status === 'accepted'" :to="'/conversations/' + received.conversation_id +'/messages'">Go to Conversation</router-link>
+                      </div>
                     </div>
                   </div>
                   <hr/>

@@ -14,9 +14,9 @@
     <form class="form-signin" @submit.prevent="signIn">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" v-model="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" v-model="user.email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" v-model="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" v-model="user.password" id="inputPassword" class="form-control" placeholder="Password" required>
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
@@ -35,8 +35,10 @@
 export default {
   data (){
     return {
+      user: {
         email: '',
         password: ''
+      }
     }
   },
   created () {
@@ -47,7 +49,7 @@ export default {
   },
   methods: {
     signIn() {
-      this.$http.post('auth/sign_in', { email: this.email, password: this.password } )
+      this.$http.post('auth/sign_in', this.user )
       .then(response => {
         localStorage.accessToken = response.headers['map']['access-token'];
 
@@ -78,7 +80,7 @@ export default {
     },
 
     checkSignedIn () {
-      if (localStorage.signedIn === 'true') {
+      if (this.$store.getters.data.signedIn === 'true') {
           this.$router.replace('/');
       }
     }

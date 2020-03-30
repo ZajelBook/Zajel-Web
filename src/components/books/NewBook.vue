@@ -13,7 +13,7 @@
     </div>
     <div class="section-top-border">
       <div class="row">
-        <div class="col-lg-6 col-md-6 offset-3">
+        <div class="col-lg-6 col-md-6 offset-md-3 col-10 offset-1 ">
           <u><h3 class="mb-30">Add new book</h3></u>
           <form @submit.prevent="submit">
             <div class="mb-3">

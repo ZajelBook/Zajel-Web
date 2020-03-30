@@ -14,17 +14,17 @@
       <div class="container box_1170">
         <div class="section-top-border">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="mb-20">
                 <img :src="this.book.image" class="img-fluid">
               </div>
-              <div class="text-center mb-20">
+              <div class="text-center mb-20" v-if="this.$store.getters.data.signedIn">
                 <button @click="borrow" id="borrow" class="genric-btn primary circle arrow" v-show="!this.book.requested && this.book.status === 'available'">Send borrow request</button>
                 <button @click="cancel" id="cancel" class="genric-btn primary-border circle arrow" v-show="this.book.requested && this.book.status === 'available'">Cancel borrow request</button>
                 <button id="disabled" class="genric-btn disable radius circle arrow" v-show="this.book.status === 'borrowed'">Book is unavailable</button>
               </div>
             </div>
-            <div class="col-md-9 mt-sm-20">
+            <div class="col-md-8 mt-sm-20">
               <h2 class="mb-30">{{this.book.title}}</h2>
                 <p>By: <u>{{this.book.author}}</u></p>
                 <p>{{this.book.language}}</p>
@@ -47,11 +47,7 @@ export default {
     }
   },
   created () {
-    if(this.$store.state.signedIn){
-      this.fetchData()
-    } else {
-      this.$router.push('/login')
-    }
+    this.fetchData()
   },
   methods: {
     fetchData() {
@@ -68,15 +64,11 @@ export default {
       this.$http.post('book_activities', {
         book_id: this.$route.params.id
       }).then( response => {
-        document.getElementById('borrow').hidden = true
-        document.getElementById('cancel').hidden = false
         this.fetchData()
       })
     },
     cancel () {
       this.$http.delete('book_activities/' + this.$route.params.id ).then( response => {
-        document.getElementById('cancel').hidden = true
-        document.getElementById('borrow').hidden = false
         this.fetchData()
       })
     }

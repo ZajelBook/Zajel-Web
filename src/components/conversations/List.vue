@@ -88,7 +88,7 @@
       }
     },
     mounted() {
-      this.$cable._connect('ws://localhost:3000/cable?access-token='+this.$store.getters.headers.accessToken+'&client='+this.$store.getters.headers.client+'&uid='+this.$store.getters.headers.uid)
+      this.$cable._connect('ws://localhost:3000/cable?access-token='+this.$store.getters.data.accessToken+'&client='+this.$store.getters.data.client+'&uid='+this.$store.getters.data.uid)
       this.$cable.subscribe({
         channel: 'ConversationChannel',
         id: this.$route.params.id
