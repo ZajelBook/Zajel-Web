@@ -75,7 +75,14 @@ export default {
         console.log(error);
       }).then(data => {
         this.headers = data
-        console.log(this.headers)
+        if(this.$store.getters.data.latitude && this.$store.getters.data.longitude) {
+          this.$http.put('users/' + this.$store.getters.data.user_id, {
+            latitude: this.$store.getters.data.latitude,
+            longitude: this.$store.getters.data.longitude
+          }).then(response => {
+            console.log(response)
+          })
+        }
       })
     },
 

@@ -11,7 +11,9 @@ export default new Vuex.Store({
     client: localStorage.client,
     uid: localStorage.uid,
     expiry: localStorage.expiry,
-    bearer: localStorage.bearer
+    bearer: localStorage.bearer,
+    latitude: localStorage.latitude,
+    longitude: localStorage.longitude
   },
   getters: {
     data: state => {
@@ -20,7 +22,9 @@ export default new Vuex.Store({
         uid: state.uid,
         client: state.client,
         signedIn: state.signedIn,
-        user_id: state.user_id
+        user_id: state.user_id,
+        latitude: state.latitude,
+        longitude: state.longitude
       }
     }
   },
@@ -60,6 +64,12 @@ export default new Vuex.Store({
       state.uid = null;
       state.expiry = null;
       state.bearer = null;
+    },
+    setLocation (state, {latitude, longitude}) {
+      localStorage.latitude = latitude
+      localStorage.longitude = longitude
+      state.latitude = latitude
+      state.longitude = longitude
     }
   }
 })
