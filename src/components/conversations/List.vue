@@ -33,7 +33,7 @@
                 <div class="d-flex justify-content-end mb-4"  v-if="message.sender_id == currentUserId">
                 <div class="msg_cotainer_send text-center">
                   {{message.content}}
-                  <span class="msg_time_send">{{message.created_at}}</span>
+                  <span class="msg_time_send">{{new Date(message.created_at).toLocaleString()}}</span>
                 </div>
               </div>
                 <div class="d-flex justify-content-start mb-4" v-else>
@@ -44,6 +44,9 @@
                 </div>
               </div>
             </div>
+            <infinite-loading @infinite="infiniteHandler">
+              <div slot="no-more"></div>
+            </infinite-loading>
             <div class="card-footer">
               <form @submit.prevent="sendMessage">
                 <div class="input-group">
@@ -62,7 +65,12 @@
 </template>
 
 <script>
+  import InfiniteLoading from 'vue-infinite-loading';
+
   export default {
+    components: {
+      InfiniteLoading
+    },
     data () {
       return {
         currentUserId: this.$store.state.user_id,
@@ -95,16 +103,15 @@
       });
     },
     methods: {
-      fetchData(pageNumber) {
-        this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: pageNumber, per_page: 200}})
+      fetchData() {
+        this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: this.pageNumber++, per_page: 30}})
           .then(response => {
             this.messages = this.messages.concat(response.data.messages)
             this.bookActivity = response.data.book_activity
-            this.pageNumber++
           }, error => {
             console.log(error);
           }).then(data => {
-          this.scrollDown();
+          // this.scrollDown();
         })
       },
       sendMessage(){
@@ -112,19 +119,32 @@
         if(!message.trim() == '') {
           this.$http.post('conversations/' + this.$route.params.id + '/messages', {
             content: this.message
-          })
-                  .then(response => {
-                    $('#message_box').val('')
-                    this.message = ''
-                  }, error => {
-                    console.log(error);
-                  })
+          }).then(response => {
+              $('#message_box').val('')
+              this.message = ''
+            }, error => {
+              console.log(error);
+            })
         }
       },
       scrollDown(){
         $('#list').stop ().animate ({
           scrollTop: $('#list')[0].scrollHeight
         });
+      },
+      infiniteHandler($state) {
+        this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: this.pageNumber, per_page: 30}})
+        .then( response => {
+          if (response.data.messages && response.data.messages.length) {
+            this.messages = this.messages.concat(response.data.messages)
+            this.pageNumber++
+            $state.loaded();
+          }
+          else if (response.data.errors.length === 0){
+            $state.complete();
+          }}).then( next => {
+          this.scrollDown();
+        })
       }
     }
   }
