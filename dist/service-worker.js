@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.ffb06df037a549dc1007c6a9ae927c84.js"
+  "/precache-manifest.f6ae4bfa32c5b234aeea4929c5721fa1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "zajel-web"});
