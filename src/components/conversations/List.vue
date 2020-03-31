@@ -96,7 +96,7 @@
       }
     },
     mounted() {
-      this.$cable._connect('ws://localhost:3000/cable?access-token='+this.$store.getters.data.accessToken+'&client='+this.$store.getters.data.client+'&uid='+this.$store.getters.data.uid)
+      this.$cable._connect('wss://zajel.mylestone.life/cable?access-token='+this.$store.getters.data.accessToken+'&client='+this.$store.getters.data.client+'&uid='+this.$store.getters.data.uid)
       this.$cable.subscribe({
         channel: 'ConversationChannel',
         id: this.$route.params.id
