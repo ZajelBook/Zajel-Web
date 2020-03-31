@@ -62,8 +62,8 @@
               </h3>
               <ul>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#"> Contact</a></li>
+                <li><router-link to="/policy">Privacy Policy</router-link></li>
+                <li><router-link to="/terms">Terms of Service</router-link></li>
                 <li><a href="#">Support</a></li>
               </ul>
             </div>
