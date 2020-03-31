@@ -14,6 +14,7 @@
         <div class="container">
           <div class="row">
             <div class="col-xl-12 col-lg-12">
+              <h3 class="exp_title text-center" v-if="!this.$store.getters.data.latitude">Please allow Zajel to access your location</h3>
               <h3 class="exp_title text-center">{{this.metadata.count}} Books are available</h3>
               <div class="col-xl-12 page_nation text-center">
                 <paginate
@@ -34,6 +35,7 @@
                       <div class="explorer_info">
                         <h3><router-link :to="'books/' + book.id">{{book.title}}</router-link></h3>
                         <p>{{book.genre}}</p>
+                        <p><i style="font-size:24px; color: red" class="fa fa-map-marker"></i> {{book.distance === 0 ? 'few meters away!' : book.distance + ' km away'}}</p>
                       </div>
                     </div>
                   </div>
@@ -60,30 +62,17 @@ export default {
     }
   },
   created () {
-    this.getLocation();
     this.fetchData()
   },
   methods: {
-    getLocation(){
-      if(!("geolocation" in navigator)) {
-        this.location_data.errorStr = 'Geolocation is not available.';
-        return;
-      }
-
-      this.location_data.gettingLocation = true;
-      navigator.geolocation.getCurrentPosition(pos => {
-                this.location_data.gettingLocation = false;
-                this.location_data.location = pos;
-              }, err => {
-                this.location_data.gettingLocation = false;
-                this.location_data.errorStr = err.message;
-              }
-      )
-
-      console.log('location: '+this.location_data.location)
-    },
     fetchData(pageNumber) {
-      this.$http.get('books', {params: {page: pageNumber, per_page: 21}})
+      let requestParams = {
+        page: pageNumber,
+        per_page: 21,
+        latitude: this.$store.getters.data.latitude,
+        longitude: this.$store.getters.data.longitude
+      }
+      this.$http.get('books', {params: requestParams})
       .then(response => {
         this.books = response.data.books
         this.metadata = response.data.metadata

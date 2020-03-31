@@ -17,11 +17,15 @@
             <div class="col-md-4">
               <div class="mb-20">
                 <img :src="this.book.image" class="img-fluid">
+                <p class="text-center mt-2" v-if="!(this.$store.getters.data.user_id == this.book.owner_id)"><i style="font-size:24px; color: red" class="fa fa-map-marker"></i> {{book.distance === 0 ? 'few meters away!' : book.distance + ' km away'}}</p>
               </div>
               <div class="text-center mb-20" v-if="this.$store.getters.data.signedIn">
                 <button @click="borrow" id="borrow" class="genric-btn primary circle arrow" v-show="!this.book.requested && this.book.status === 'available'">Send borrow request</button>
                 <button @click="cancel" id="cancel" class="genric-btn primary-border circle arrow" v-show="this.book.requested && this.book.status === 'available'">Cancel borrow request</button>
                 <button id="disabled" class="genric-btn disable radius circle arrow" v-show="this.book.status === 'borrowed'">Book is unavailable</button>
+              </div>
+              <div class="text-center mb-20" v-else>
+                <router-link class="genric-btn primary circle arrow" to="/login">Sign in</router-link>
               </div>
             </div>
             <div class="col-md-8 mt-sm-20">
@@ -51,7 +55,11 @@ export default {
   },
   methods: {
     fetchData() {
-      this.$http.get('books/' + this.$route.params.id)
+      let requestParams = {
+        latitude: this.$store.getters.data.latitude,
+        longitude: this.$store.getters.data.longitude
+      }
+      this.$http.get('books/' + this.$route.params.id, { params: requestParams } )
       .then(response => {
         return response.json();
       }, error => {
