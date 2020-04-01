@@ -33,7 +33,7 @@
                     </div>
                     <div class="explorer_bottom d-flex">
                       <div class="explorer_info">
-                        <h3><router-link :to="'books/' + book.id">{{book.title}}</router-link></h3>
+                        <h3><router-link :to="'books/by_name/' + book.friendly_id">{{book.title}}</router-link></h3>
                         <p>{{book.genre}}</p>
                         <p><i style="font-size:24px; color: red" class="fa fa-map-marker"></i> {{book.distance === 0 ? 'few meters away!' : book.distance + ' km away'}}</p>
                       </div>

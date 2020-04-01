@@ -19,12 +19,12 @@
                 <img :src="this.book.image" class="img-fluid">
                 <p class="text-center mt-2" v-if="!(this.$store.getters.data.user_id == this.book.owner_id)"><i style="font-size:24px; color: red" class="fa fa-map-marker"></i> {{book.distance === 0 ? 'few meters away!' : book.distance + ' km away'}}</p>
               </div>
-              <div class="text-center mb-20" v-if="this.$store.getters.data.signedIn">
-                <button @click="borrow" id="borrow" class="genric-btn primary circle arrow" v-show="!this.book.requested && this.book.status === 'available'">Send borrow request</button>
-                <button @click="cancel" id="cancel" class="genric-btn primary-border circle arrow" v-show="this.book.requested && this.book.status === 'available'">Cancel borrow request</button>
+              <div class="text-center mb-20" v-if="this.$store.getters.data.signedIn && !(this.book.owner_id == this.$store.getters.data.user_id)">
+                <button @click="borrow(book.id)" id="borrow" class="genric-btn primary circle arrow" v-show="!this.book.requested && this.book.status === 'available'">Send borrow request</button>
+                <button @click="cancel(book.id)" id="cancel" class="genric-btn primary-border circle arrow" v-show="this.book.requested && this.book.status === 'available'">Cancel borrow request</button>
                 <button id="disabled" class="genric-btn disable radius circle arrow" v-show="this.book.status === 'borrowed'">Book is unavailable</button>
               </div>
-              <div class="text-center mb-20" v-else>
+              <div class="text-center mb-20" v-else-if="!this.$store.getters.data.signedIn">
                 <router-link class="genric-btn primary circle arrow" to="/login">Sign in</router-link>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default {
         latitude: this.$store.getters.data.latitude,
         longitude: this.$store.getters.data.longitude
       }
-      this.$http.get('books/' + this.$route.params.id, { params: requestParams } )
+      this.$http.get('books/by_name/' + this.$route.params.friendly_id, { params: requestParams } )
       .then(response => {
         return response.json();
       }, error => {
@@ -68,15 +68,15 @@ export default {
         this.book = data
       })
     },
-    borrow () {
+    borrow (book_id) {
       this.$http.post('book_activities', {
-        book_id: this.$route.params.id
+        book_id: book_id
       }).then( response => {
         this.fetchData()
       })
     },
-    cancel () {
-      this.$http.delete('book_activities/' + this.$route.params.id ).then( response => {
+    cancel (book_id) {
+      this.$http.delete('book_activities/' + book_id ).then( response => {
         this.fetchData()
       })
     }
