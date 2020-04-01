@@ -19,6 +19,7 @@ const routes = [
   { path: '/signup', component: SignUp },
   { path: '/books/new', component: NewBook },
   { path: '/books/:id', component: BookDetails },
+  { path: '/books/by_name/:friendly_id', component: BookDetails },
   { path: '/book_activities', component: Requests },
   { path: '/conversations/:id/messages', component: Conversations },
   {

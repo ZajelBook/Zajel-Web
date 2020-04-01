@@ -39,7 +39,7 @@
                       </div>
                     </div>
                     <div class="col-md-9 mt-sm-20">
-                      <h3><router-link :to="'books/' + sent.book.id">{{sent.book.title}}</router-link></h3>
+                      <h3><router-link :to="'books/by_name/' + sent.book.friendly_id">{{sent.book.title}}</router-link></h3>
                       <p>Requested at: <u>{{sent.created_at}}</u></p>
 
                       <router-link :id="sent.conversation_id" class="genric-btn success circle" v-show="sent.status === 'accepted'" :to="'/conversations/' + sent.conversation_id +'/messages'">Go to Conversation</router-link>
@@ -67,7 +67,7 @@
                       </div>
                     </div>
                     <div class="col-md-9 mt-sm-20">
-                      <h3><router-link :to="'books/' + received.book.id">{{received.book.title}}</router-link></h3>
+                      <h3><router-link :to="'books/by_name/' + received.book.friendly_id">{{received.book.title}}</router-link></h3>
                       <p>Requested by: <u>{{received.borrower.name}}</u></p>
                       <p>Requested at: <u>{{received.created_at}}</u></p>
 
