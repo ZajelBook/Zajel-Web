@@ -24,6 +24,10 @@
                 <button @click="cancel(book.id)" id="cancel" class="genric-btn primary-border circle arrow" v-show="this.book.requested && this.book.status === 'available'">Cancel borrow request</button>
                 <button id="disabled" class="genric-btn disable radius circle arrow" v-show="this.book.status === 'borrowed'">Book is unavailable</button>
               </div>
+              <div class="text-center mb-20" v-else-if="this.$store.getters.data.signedIn && this.book.owner_id == this.$store.getters.data.user_id">
+                <router-link class="genric-btn primary circle arrow" :to=" this.book.friendly_id+'/edit'">update book details</router-link>
+              </div>
+
               <div class="text-center mb-20" v-else-if="!this.$store.getters.data.signedIn">
                 <router-link class="genric-btn primary circle arrow" to="/login">Sign in</router-link>
               </div>

@@ -18,6 +18,7 @@
                     <ul id="navigation">
                       <li><router-link to="/">Home</router-link></li>
                       <li><router-link to="/books">books</router-link></li>
+                      <li><router-link to="/my_books">My books</router-link></li>
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/login">Sign in</router-link></li>
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
