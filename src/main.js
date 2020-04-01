@@ -4,7 +4,6 @@ import vSelect from 'vue-select'
 import App from './App.vue';
 import VCalendar from 'v-calendar';
 import Vue from "vue";
-import './registerServiceWorker'
 import store from './store'
 import router from './router'
 import './cable'

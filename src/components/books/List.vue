@@ -15,14 +15,15 @@
           <div class="row">
             <div class="col-xl-12 col-lg-12">
               <h3 class="exp_title text-center" v-if="!this.$store.getters.data.latitude">Please allow Zajel to access your location</h3>
-              <h3 class="exp_title text-center">{{this.metadata.count}} Books are available</h3>
+              <h3 class="exp_title text-center">{{this.metadata.count}} Books are available nearby</h3>
               <div class="col-xl-12 page_nation text-center">
                 <paginate
                   :page-count="this.metadata.total_pages || 1"
                   :margin-pages="1"
                   :click-handler="paginateCallback"
                   :no-li-surround=true
-                  active-class="active">
+                  active-class="active"
+                  v-if="this.metadata.count">
                 </paginate>
               </div>
               <div class="row">
