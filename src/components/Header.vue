@@ -12,7 +12,7 @@
                   </router-link>
                 </div>
               </div>
-              <div class="col-xl-9 col-lg-9">
+              <div class="col-xl-7 col-lg-7">
                 <div class="main-menu  d-none d-lg-block">
                   <nav>
                     <ul id="navigation">
