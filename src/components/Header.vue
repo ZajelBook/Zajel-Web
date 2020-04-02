@@ -5,7 +5,7 @@
         <div class="container-fluid ">
           <div class="header_bottom_border">
             <div class="row align-items-center">
-              <div class="col-xl-3 col-lg-1 col-sm-1">
+              <div class="col-xl-1 col-lg-1 col-sm-1">
                 <div class="logo">
                   <router-link to="/">
                     <img src="@/assets/img/5.png" alt="" width="60px">
@@ -23,6 +23,7 @@
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/books/new">Add new book</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/notifications">Notifications</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><a href="#" @click.prevent="signOut">Sign Out</a></li>
                     </ul>
                   </nav>
@@ -58,5 +59,7 @@ export default {
 </script>
 
 <style>
-
+.logo {
+  margin-top: -10px;
+}
 </style>
