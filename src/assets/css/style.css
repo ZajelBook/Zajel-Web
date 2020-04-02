@@ -1363,7 +1363,7 @@ h3 {
 
 /* line 1, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
 .slider_bg_1 {
-  background-image: url(../img/banner/banner.png);
+  background-image: url(../img/bookshelf.jpg);
 }
 
 /* line 4, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
@@ -1412,14 +1412,14 @@ h3 {
 @media (max-width: 767px) {
   /* line 25, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
   .slider_area .single_slider {
-    height: auto;
+    /*height: auto;*/
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   /* line 25, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
   .slider_area .single_slider {
-    height: 600px;
+    /*height: 600px;*/
   }
 }
 
@@ -5567,7 +5567,7 @@ p #amount {
 
 /* line 4, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_bradcam.scss */
 .bradcam_bg_2 {
-  background-image: url(../img/banner/bradcam2.png);
+  background-image: url(../img/bookshelf.jpg);
 }
 
 /* line 7, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_bradcam.scss */
