@@ -11,9 +11,9 @@
                 </a>
               </div>
               <p>
-                Again! it's <a style="color: #F91842;" target="_blank" href="https://mhdrahmoun.me">mhdrahmoun </a> &
-                <a style="color: #F91842;" target="_blank" href="https://github.com/MohammedMokresh">Mohammed Mokresh </a>
-                <p>contact us: info@bernovia.com</p>
+                Again! it's <a target="_blank" href="https://mhdrahmoun.me"><b style="color: rgb(248, 25, 67);" >mhdrahmoun</b> </a> &
+                <a target="_blank" href="https://github.com/MohammedMokresh"><b style="color: rgb(248, 25, 67);" >Mohammed Mokresh</b> </a>
+                <p>contact us: <b style="color: rgb(248, 25, 67);">info@bernovia.com</b></p>
             </div>
           </div>
           <div class="col-xl-4 col-md-6 col-lg-3">

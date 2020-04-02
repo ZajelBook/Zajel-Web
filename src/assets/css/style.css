@@ -1395,7 +1395,9 @@ h3 {
   height: 100%;
   content: '';
 }
-
+.logo-text {
+  color: white;
+}
 /* line 25, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_slider.scss */
 .slider_area .single_slider {
   height: 900px;
