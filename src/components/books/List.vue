@@ -26,6 +26,14 @@
                   v-if="this.metadata.count">
                 </paginate>
               </div>
+              <div class="row mt-30" v-if="!this.metadata.count">
+                <div class="col-md-6 offset-md-3 text-center">
+                  <h3 class="mb-4"> Be the first to add some books</h3>
+                  <router-link to="/login" v-if="!this.$store.getters.data.signedIn" class="genric-btn primary circle arrow" >Sign in</router-link>
+
+                  <router-link to="/books/new" v-if="this.$store.getters.data.signedIn" class="genric-btn primary circle arrow">Add new book</router-link>
+                </div>
+              </div>
               <div class="row">
                 <div v-for=" book in books" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6">
                   <div class="single_explorer">

@@ -34,6 +34,12 @@
                                         <div class="explorer_info">
                                             <h3><router-link :to="'books/by_name/' + book.friendly_id">{{book.title}}</router-link></h3>
                                             <p>{{book.genre}}</p>
+                                            <div v-if="!book.approved" class="badge badge-primary" role="alert">
+                                                under review
+                                            </div>
+                                            <div v-else-if="book.approved" class="badge badge-success" role="alert">
+                                                approved
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

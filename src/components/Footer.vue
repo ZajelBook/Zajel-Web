@@ -1,9 +1,9 @@
 <template>
-  <footer class="footer">
+  <footer class="footer text-center">
     <div class="footer_top">
       <div class="container">
         <div class="row">
-          <div class="col-xl-4 col-md-6 col-lg-3">
+          <div class="col-xl-4 col-md-6 col-lg-4">
             <div class="footer_widget">
               <div class="footer_logo">
                 <a href="#">
@@ -11,74 +11,31 @@
                 </a>
               </div>
               <p>
-                Esteem spirit temper too say adieus who <br> direct esteem. It esteems luckily or <br>
-                picture placing drawing.
-              </p>
-              <div class="socail_links">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i class="ti-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-google-plus"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
+                Again! it's <a style="color: #F91842;" target="_blank" href="https://mhdrahmoun.me">mhdrahmoun </a> &
+                <a style="color: #F91842;" target="_blank" href="https://github.com/MohammedMokresh">Mohammed Mokresh </a>
+                <p>contact us: info@bernovia.com</p>
             </div>
           </div>
-          <div class="col-xl-2 col-md-6 col-lg-3">
-            <div class="footer_widget">
-              <h3 class="footer_title">
-                Services
-              </h3>
-              <ul>
-                <li><a href="#">SEO/SEM </a></li>
-                <li><a href="#">Web design </a></li>
-                <li><a href="#">Ecommerce</a></li>
-                <li><a href="#">Digital marketing</a></li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-xl-2 col-md-6 col-lg-2">
+          <div class="col-xl-4 col-md-6 col-lg-3">
             <div class="footer_widget">
               <h3 class="footer_title">
                 Useful Links
               </h3>
               <ul>
-                <li><a href="#">About</a></li>
+                <li><router-link to="/about">About</router-link></li>
                 <li><router-link to="/policy">Privacy Policy</router-link></li>
                 <li><router-link to="/terms">Terms of Service</router-link></li>
-                <li><a href="#">Support</a></li>
               </ul>
             </div>
           </div>
           <div class="col-xl-4 col-md-6 col-lg-4">
             <div class="footer_widget">
               <h3 class="footer_title">
-                Subscribe
+                Find us on play store
               </h3>
-              <form action="#" class="newsletter_form">
-                <input type="text" placeholder="Enter your mail">
-                <button type="submit">Subscribe</button>
-              </form>
-              <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems
-                luckily.</p>
+              <a href="" >
+                <img src="img/google-play-badge.svg" width="50%">
+              </a>
             </div>
           </div>
         </div>

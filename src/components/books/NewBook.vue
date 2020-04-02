@@ -60,6 +60,10 @@
             </div>
 
             <div class="mt-10">
+              <small>* Your book needs to be approved by Zajel moderators after submission </small>
+            </div>
+
+            <div class="mt-10">
               <button type="submit" class="genric-btn primary circle arrow">Submit</button>
             </div>
 
