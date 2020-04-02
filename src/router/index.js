@@ -10,6 +10,7 @@ import NewBook from '../components/books/NewBook.vue'
 import Requests from '../components/books/Requests.vue'
 import Conversations from '../components/conversations/List.vue'
 import UpdateBook from "../components/books/UpdateBook";
+import Notifications from "../components/notifications/List";
 
 
 Vue.use(VueRouter)
@@ -25,6 +26,7 @@ const routes = [
   { path: '/books/by_name/:friendly_id', component: BookDetails },
   { path: '/books/by_name/:friendly_id/edit', component: UpdateBook },
   { path: '/book_activities', component: Requests },
+  { path: '/notifications', component: Notifications },
   { path: '/conversations/:id/messages', component: Conversations },
   {
     path: '/about',
