@@ -5,10 +5,10 @@
         <div class="container-fluid ">
           <div class="header_bottom_border">
             <div class="row align-items-center">
-              <div class="col-xl-3 col-lg-2">
+              <div class="col-xl-3 col-lg-1 col-sm-1">
                 <div class="logo">
                   <router-link to="/">
-                    <img src="@/assets/img/logo.png" alt="">
+                    <img src="@/assets/img/5.png" alt="" width="60px">
                   </router-link>
                 </div>
               </div>
@@ -18,7 +18,7 @@
                     <ul id="navigation">
                       <li><router-link to="/">Home</router-link></li>
                       <li><router-link to="/books">books</router-link></li>
-                      <li><router-link to="/my_books">My books</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/my_books">My books</router-link></li>
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/login">Sign in</router-link></li>
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
