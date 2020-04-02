@@ -5,14 +5,14 @@
         <div class="container-fluid ">
           <div class="header_bottom_border">
             <div class="row align-items-center">
-              <div class="col-xl-1 col-lg-1 col-sm-1">
+              <div class="col-xl-3 col-lg-3 col-sm-3">
                 <div class="logo">
                   <router-link to="/">
                     <img src="@/assets/img/5.png" alt="" width="60px">
                   </router-link>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-9">
+              <div class="col-xl-9 col-lg-9">
                 <div class="main-menu  d-none d-lg-block">
                   <nav>
                     <ul id="navigation">
