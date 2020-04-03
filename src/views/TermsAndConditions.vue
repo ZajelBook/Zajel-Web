@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row mt-30">
-            <div class="col-md-6 offset-3">
+            <div class="col-8 offset-3">
                 <h2>Zajel Terms of Service</h2>
                 <h3>1. Terms</h3>
                 <p>By accessing the website at <b><u><a href="http://www.zajelbook.com">http://www.zajelbook.com</a></u></b>, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.</p>

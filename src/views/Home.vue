@@ -6,7 +6,7 @@
           <div class="col-xl-10">
             <div class="slider_text text-center justify-content-center">
 
-              <router-link to="/books" class="boxed-btn2" type="submit">Find Nearby Books</router-link>
+              <router-link to="/books" class="genric-btn danger circle">Find Nearby Books</router-link>
 <!--              <div class="search_form">-->
 <!--                <form action="#">-->
 <!--                  <div class="row align-items-center">-->
