@@ -5,11 +5,6 @@
         <div class="row">
           <div class="col-xl-4 col-md-6 col-lg-4">
             <div class="footer_widget">
-              <div class="footer_logo">
-                <a href="#">
-                  <img src="img/footer_logo.png" alt="">
-                </a>
-              </div>
               <p>
                 Again! it's <a target="_blank" href="https://mhdrahmoun.me"><b style="color: rgb(248, 25, 67);" >mhdrahmoun</b> </a> &
                 <a target="_blank" href="https://github.com/MohammedMokresh"><b style="color: rgb(248, 25, 67);" >Mohammed Mokresh</b> </a>
