@@ -38,7 +38,7 @@
               </div>
                 <div class="d-flex justify-content-start mb-4" v-else>
                   <div class="msg_cotainer text-center">
-                    <span class="msg_time">{{message.created_at}}</span>
+                    <span class="msg_time">{{new Date(message.created_at).toLocaleString()}}</span>
                     {{message.content}}
                   </div>
                 </div>

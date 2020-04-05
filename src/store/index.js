@@ -13,7 +13,8 @@ export default new Vuex.Store({
     expiry: localStorage.expiry,
     bearer: localStorage.bearer,
     latitude: localStorage.latitude,
-    longitude: localStorage.longitude
+    longitude: localStorage.longitude,
+    notificationsCount: 0
   },
   getters: {
     data: state => {
@@ -24,7 +25,8 @@ export default new Vuex.Store({
         signedIn: state.signedIn,
         user_id: state.user_id,
         latitude: state.latitude,
-        longitude: state.longitude
+        longitude: state.longitude,
+        notificationsCount: state.notificationsCount
       }
     }
   },
@@ -70,6 +72,12 @@ export default new Vuex.Store({
       localStorage.longitude = longitude
       state.latitude = latitude
       state.longitude = longitude
+    },
+    incrementNotificationsCount(state, {notificationsCount}) {
+      state.notificationsCount = notificationsCount
+    },
+    resetNotificationsCount(state) {
+      state.notificationsCount = 0
     }
   }
 })

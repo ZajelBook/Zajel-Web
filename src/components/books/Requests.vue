@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-md-9 mt-sm-20">
                       <h3><router-link :to="'books/by_name/' + sent.book.friendly_id">{{sent.book.title}}</router-link></h3>
-                      <p>Requested at: <u>{{sent.created_at}}</u></p>
+                      <p>Requested at: <u>{{new Date(sent.created_at).toLocaleString()}}</u></p>
 
                       <router-link :id="sent.conversation_id" class="genric-btn success circle" v-show="sent.status === 'accepted'" :to="'/conversations/' + sent.conversation_id +'/messages'">Go to Conversation</router-link>
                     </div>
@@ -60,7 +60,7 @@
                   <div class="row">
                     <div class="col-md-3">
                       <div class="mb-20 text-center">
-                        <img :src="received.book.image" class="img-fluid mb-1">
+                        <img :src="received.book.image" class="img-fluid mb-1" height="200px">
                         <div :class="received.status === 'pending' ? 'badge badge-primary' : 'badge badge-success'" role="alert">
                           {{received.status}}
                         </div>
@@ -69,7 +69,7 @@
                     <div class="col-md-9 mt-sm-20">
                       <h3><router-link :to="'books/by_name/' + received.book.friendly_id">{{received.book.title}}</router-link></h3>
                       <p>Requested by: <u>{{received.borrower.name}}</u></p>
-                      <p>Requested at: <u>{{received.created_at}}</u></p>
+                      <p>Requested at: <u>{{new Date(received.created_at).toLocaleString()}}</u></p>
 
                       <div class="text-center">
                         <button @click="accept" :id="received.id" :class="'m-2 genric-btn info circle accept_' + received.id" v-show="received.status === 'pending'">Accept</button>
