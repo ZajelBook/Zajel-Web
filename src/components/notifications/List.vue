@@ -57,8 +57,16 @@
         },
         created () {
             this.fetchData()
+            if(this.$store.getters.data.notificationsCount !== 0) {
+                this.updateUnreadCount()
+            }
+
         },
         methods: {
+            updateUnreadCount(){
+                this.$http.put('notifications/read')
+                this.$store.commit('resetNotificationsCount')
+            },
             fetchData(pageNumber) {
                 let requestParams = {
                     page: pageNumber,

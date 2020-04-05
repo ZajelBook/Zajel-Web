@@ -23,7 +23,9 @@
                       <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><router-link to="/books/new">Add new book</router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/notifications">Notifications</router-link></li>
+                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/notifications">Notifications
+                        <span class="badge badge-pill badge-danger">{{this.notificationsCount}}</span>
+                      </router-link></li>
                       <li v-if="this.$store.getters.data.signedIn"><a href="#" @click.prevent="signOut">Sign Out</a></li>
                     </ul>
                   </nav>
@@ -43,8 +45,35 @@
 </template>
 
 <script>
+  import store from '../store'
+
 export default {
-    methods: {
+  data () {
+    return {
+      notificationsCount: this.$store.getters.data.notificationsCount
+    }
+  },
+  computed: {
+    count(){
+      return this.$store.getters.data.notificationsCount;
+    }
+  },
+  watch: {
+    count(value){
+      this.notificationsCount = value
+    }
+  },
+  created () {
+    if (this.$store.getters.data.signedIn){
+      this.$http.get('notifications/unread')
+              .then( response => {
+                this.notificationsCount = response.data.notifications_count
+                this.$store.commit('incrementNotificationsCount', {notificationsCount: response.data.notifications_count })
+              })
+
+    }
+  },
+  methods: {
         signOut () {
             this.$http.delete('auth/sign_out')
             .then(response => {
