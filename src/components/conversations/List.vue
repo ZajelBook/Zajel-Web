@@ -103,6 +103,12 @@
       });
     },
     methods: {
+      unsubscribe() {
+        this.$cable.unsubscribe({
+          channel: 'ConversationChannel',
+          id: this.$route.params.id
+        });
+      },
       fetchData() {
         this.$http.get('conversations/' + this.$route.params.id + '/messages', {params: {page: this.pageNumber++, per_page: 30}})
           .then(response => {
