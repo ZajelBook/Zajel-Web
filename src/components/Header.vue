@@ -5,35 +5,40 @@
         <div class="container-fluid ">
           <div class="header_bottom_border">
             <div class="row align-items-center">
-              <div class="col-xl-3 col-lg-3 col-sm-3">
-                <div class="logo">
-                  <router-link to="/">
-                    <img src="@/assets/img/5.png" alt="" width="60px">
-                  </router-link>
-                </div>
-              </div>
-              <div class="col-xl-7 col-lg-7">
-                <div class="main-menu  d-none d-lg-block">
-                  <nav>
-                    <ul id="navigation">
-                      <li><router-link to="/">Home</router-link></li>
-                      <li><router-link to="/books">books</router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/my_books">My books</router-link></li>
-                      <li v-if="!this.$store.getters.data.signedIn"><router-link to="/login">Sign in</router-link></li>
-                      <li v-if="!this.$store.getters.data.signedIn"><router-link to="/signup">Sign up</router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/book_activities">Requests</router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/books/new">Add new book</router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><router-link to="/notifications">Notifications
+              <div class="col-xl-12 col-lg-12 col-sm-12">
+                <nav class="main-menu navbar navbar-expand-lg navbar-dark">
+                  <div class="logo">
+                    <router-link to="/">
+                      <img src="@/assets/img/5.png" alt="" width="60px">
+                    </router-link>
+                  </div>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div v-if="this.$store.getters.data.signedIn" class="offset-1 col-11 collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav text-center">
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/">Home</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books">books</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/my_books">My books</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" :to="{name: 'BorrowRequests'}">Borrow Requests</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" :to="{name: 'LendRequests'}">Lend Requests</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books/new">Add new book</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/notifications">Notifications
                         <span class="badge badge-pill badge-danger">{{this.notificationsCount}}</span>
                       </router-link></li>
-                      <li v-if="this.$store.getters.data.signedIn"><a href="#" @click.prevent="signOut">Sign Out</a></li>
+                      <li class="nav-item"><a href="#" class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" @click.prevent="signOut">Logout</a></li>
                     </ul>
-                  </nav>
-                </div>
-              </div>
+                  </div>
 
-              <div class="col-12">
-                <div class="mobile_menu d-block d-lg-none"></div>
+                  <div v-if="!this.$store.getters.data.signedIn" class="offset-4 col-9 collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav text-center">
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/">Home</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books">books</router-link></li>
+                      <li class="nav-item" v-if="!this.$store.getters.data.signedIn"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/login">Login</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/signup">Register</router-link></li>
+                    </ul>
+                  </div>
+                </nav>
               </div>
             </div>
           </div>
@@ -88,6 +93,25 @@ export default {
 </script>
 
 <style>
+  @media only screen and (max-width : 768px) {
+    .navbar-collapse {
+      background: white;
+      margin: auto;
+    }
+    .navbar-dark .navbar-toggler {
+      border-color: white;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    .navbar-collapse {
+      background: white;
+      margin: auto;
+    }
+    .navbar-dark .navbar-toggler {
+      border-color: white;
+    }
+  }
 .logo {
   margin-top: -10px;
 }

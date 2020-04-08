@@ -120,7 +120,6 @@
                 fetch(book.image)
                     .then(res => res.blob()) // Gets the response and returns it as a blob
                     .then(blob => {
-                        console.log(blob)
                         this.image = blob
                     });
             })
@@ -151,6 +150,7 @@
             uploadImage (event) {
                 $('#file-selected').text(event.target.files[0].name);
                 this.image = event.target.files[0];
+                this.current_image = URL.createObjectURL(event.target.files[0])
             }
         }
     }
