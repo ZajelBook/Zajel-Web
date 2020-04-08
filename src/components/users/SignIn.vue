@@ -12,7 +12,7 @@
       </div>
     </div>
     <form class="form-signin" @submit.prevent="signIn">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input type="email" v-model="user.email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
       <label for="inputPassword" class="sr-only">Password</label>
@@ -23,7 +23,7 @@
         </label>
       </div>
       <div class="text-center">
-        <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Sign in</button>
+        <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Login</button>
         <p><span>Don't have an account? </span></p><u><router-link to="/signup" class="text-center">Register here</router-link></u>
 
       </div>
@@ -79,8 +79,6 @@ export default {
           this.$http.put('users/' + this.$store.getters.data.user_id, {
             latitude: this.$store.getters.data.latitude,
             longitude: this.$store.getters.data.longitude
-          }).then(response => {
-            console.log(response)
           })
         }
       })

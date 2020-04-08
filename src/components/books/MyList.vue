@@ -26,23 +26,25 @@
                         </div>
                         <div class="row">
                             <div v-for=" book in books" class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6">
-                                <div class="single_explorer">
-                                    <div class="thumb">
-                                        <img :src="book.image">
-                                    </div>
-                                    <div class="explorer_bottom d-flex">
-                                        <div class="explorer_info">
-                                            <h3><router-link :to="'books/by_name/' + book.friendly_id">{{book.title}}</router-link></h3>
-                                            <p>{{book.genre}}</p>
-                                            <div v-if="!book.approved" class="badge badge-primary" role="alert">
-                                                under review
-                                            </div>
-                                            <div v-else-if="book.approved" class="badge badge-success" role="alert">
-                                                approved
+                                <router-link :to="'books/by_name/' + book.friendly_id">
+                                    <div class="single_explorer">
+                                        <div class="thumb">
+                                            <img :src="book.image">
+                                        </div>
+                                        <div class="explorer_bottom d-flex">
+                                            <div class="explorer_info">
+                                                <div id="book-title">{{book.title}}</div>
+                                                <p>{{book.genre}}</p>
+                                                <div v-if="!book.approved" class="badge badge-primary" role="alert">
+                                                    under review
+                                                </div>
+                                                <div v-else-if="book.approved" class="badge badge-success" role="alert">
+                                                    approved
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </router-link>
                             </div>
                         </div>
                     </div>

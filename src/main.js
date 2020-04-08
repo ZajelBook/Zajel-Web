@@ -7,7 +7,8 @@ import Vue from "vue";
 import store from './store'
 import router from './router'
 import './cable'
-
+import moment from 'moment';
+Vue.prototype.moment = moment
 Vue.config.productionTip = false
 
 Vue.use(VueResource);
@@ -32,7 +33,6 @@ Vue.http.interceptors.push((request, next) => {
   request.headers.set('token-type', localStorage.bearer);
 
   next(response => {
-    console.log(response);
     if(response.status == 401){
 
       store.commit('signOut');

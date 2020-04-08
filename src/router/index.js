@@ -7,7 +7,8 @@ import SignIn from '../components/users/SignIn.vue';
 import SignUp from '../components/users/SignUp.vue';
 import BookDetails from '../components/books/BookDetails.vue'
 import NewBook from '../components/books/NewBook.vue'
-import Requests from '../components/books/Requests.vue'
+import BorrowRequests from '../components/books/BorrowRequests.vue'
+import LendRequests from '../components/books/LendRequests.vue'
 import Conversations from '../components/conversations/List.vue'
 import UpdateBook from "../components/books/UpdateBook";
 import Notifications from "../components/notifications/List";
@@ -25,7 +26,8 @@ const routes = [
   { path: '/books/:id', component: BookDetails },
   { path: '/books/by_name/:friendly_id', component: BookDetails },
   { path: '/books/by_name/:friendly_id/edit', component: UpdateBook },
-  { path: '/book_activities', component: Requests },
+  { path: '/borrow_requests', name: 'BorrowRequests', component: BorrowRequests },
+  { path: '/lend_requests', name: 'LendRequests', component: LendRequests },
   { path: '/notifications', component: Notifications },
   { path: '/conversations/:id/messages', component: Conversations },
   {

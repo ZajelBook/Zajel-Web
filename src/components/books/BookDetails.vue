@@ -29,12 +29,25 @@
               </div>
 
               <div class="text-center mb-20" v-else-if="!this.$store.getters.data.signedIn">
-                <router-link class="genric-btn primary circle arrow" to="/login">Sign in</router-link>
+                <router-link class="genric-btn primary circle arrow" to="/login">Login</router-link>
               </div>
             </div>
             <div class="col-md-8 mt-sm-20">
-              <h2 class="mb-30">{{this.book.title}}</h2>
-                <p>By: <u>{{this.book.author}}</u></p>
+              <div class="mb-30">
+                <h2>{{this.book.title}}</h2>
+                <small>{{this.book.page_count}} pages</small>
+                <small> | by: <b>{{this.book.author}}</b></small>
+                <small> |
+              <div v-if="this.book.status === 'available'" class="badge badge-success" role="alert">
+                {{this.book.status}}
+              </div>
+              <div v-else-if="this.book.status === 'unavailable'" class="badge badge-danger" role="alert">
+                {{this.book.status}}
+              </div>
+              <div v-else class="badge badge-info" role="alert">
+                {{this.book.status}}
+              </div></small></div>
+
                 <p>{{this.book.language}}</p>
                 <p>{{this.book.genre}}</p>
                 <p>{{this.book.description}}</p>

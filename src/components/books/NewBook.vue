@@ -33,7 +33,7 @@
 
             <div class="mb-3">
               <label for="published_at">Published at</label>
-              <input type="number" class="form-control" id="published_at" min="1900" max="2020" placeholder="Book published at" v-model="published_at" required>
+              <input type="number" class="form-control" id="published_at" max="2020" placeholder="Book published at" v-model="published_at" required>
             </div>
 
             <div class="mb-3">
@@ -129,7 +129,6 @@
         data.append('genre_id', this.genre_id);
         data.append('image', this.image, this.image.name);
         this.$http.post('books', data).then(response => {
-          console.log(response.body);
           this.$router.replace('/books/' + response.body.id);
         })
       },

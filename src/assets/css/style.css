@@ -1065,7 +1065,7 @@ h3 {
 /* line 133, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_header.scss */
 .header-area .main-header-area .main-menu {
   text-align: center;
-  padding: 12px 0;
+  padding: 0 10px 0 0;
 }
 
 /* line 137, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_header.scss */
@@ -1082,23 +1082,24 @@ h3 {
   text-transform: capitalize;
   font-weight: 500;
   display: inline-block;
-  padding: 0px 0px 0px 0px;
   font-family: "Raleway", sans-serif;
   position: relative;
   text-transform: capitalize;
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (max-width: 767px) {
   /* line 147, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_header.scss */
   .header-area .main-header-area .main-menu ul li a {
     font-size: 15px;
+    color: #000 !important;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1500px) {
+@media (min-width: 767px) and (max-width: 992px) {
   /* line 147, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_header.scss */
   .header-area .main-header-area .main-menu ul li a {
     font-size: 15px;
+    color: #000 !important;
   }
 }
 
@@ -9295,11 +9296,29 @@ h6 {
   color: #8a8a8a;
   margin-right: 14px;
 }
+@media (max-width: 390px) {
+  #book-title {
+    width: 120px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 
-@media (max-width: 576px) {
+@media only screen and (min-width: 390px) and (max-width: 576px) {
   /* line 150, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog_part.scss */
   .blog_part .single-home-blog .card ul li {
     margin-right: 10px;
+  }
+  #book-title {
+    width: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -9308,6 +9327,14 @@ h6 {
   .blog_part .single-home-blog .card ul li {
     margin-right: 10px;
   }
+  #book-title {
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -9315,12 +9342,52 @@ h6 {
   .blog_part .single-home-blog .card ul li {
     margin-right: 10px;
   }
+  #book-title {
+    width: 250px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 150, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog_part.scss */
   .blog_part .single-home-blog .card ul li {
     margin-right: 10px;
+  }
+  #book-title {
+    width: 220px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+  /* line 150, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog_part.scss */
+  #book-title {
+    width: 260px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (min-width: 1500px) {
+  /* line 150, ../../Arafath/CL/Cl November/222. Directory/HTML/scss/_blog_part.scss */
+  #book-title {
+    width: 260px;
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
