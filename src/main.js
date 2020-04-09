@@ -25,7 +25,7 @@ function getPosition(position) {
 
 // Vue.http.options.root = "http://localhost:3000/api/";
 // Vue.http.options.root = "https://zajel.mylestone.life/api/";
-Vue.http.options.root = "https://api.zajelbook.com/";
+Vue.http.options.root = "https://api.zajelbook.com/api/";
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('access-token', localStorage.accessToken);
   request.headers.set('client', localStorage.client);
