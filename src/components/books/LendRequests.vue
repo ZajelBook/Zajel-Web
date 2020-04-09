@@ -22,7 +22,7 @@
               <div class="row">
                 <div class="col-sm-3 col-3">
                   <div class="mb-20 text-center">
-                    <img :src="received.book.image" class="img-fluid mb-3">
+                    <img :src="received.book.image" class="img-fluid mb-3" alt="borrowed_book">
                     <div :class="received.status === 'pending' ? 'badge badge-primary' : 'badge badge-success'" role="alert">
                       {{received.status}}
                     </div>

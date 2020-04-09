@@ -6,8 +6,8 @@
           <div class="col-xl-4 col-md-6 col-lg-4">
             <div class="footer_widget">
               <p>
-                Again! it's <a target="_blank" href="https://mhdrahmoun.me"><b style="color: rgb(248, 25, 67);" >mhdrahmoun</b> </a> &
-                <a target="_blank" href="https://github.com/MohammedMokresh"><b style="color: rgb(248, 25, 67);" >Mohammed Mokresh</b> </a>
+                Again! it's <a target="_blank" rel="noreferrer" href="https://mhdrahmoun.me"><b style="color: rgb(248, 25, 67);" >mhdrahmoun</b> </a> &
+                <a target="_blank" rel="noreferrer" href="https://github.com/MohammedMokresh"><b style="color: rgb(248, 25, 67);" >Mohammed Mokresh</b> </a>
                 <p>contact us: <b style="color: rgb(248, 25, 67);">info@bernovia.com</b></p>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 Find us on play store
               </h3>
               <a href="" >
-                <img src="img/google-play-badge.svg" width="50%">
+                <img src="img/google-play-badge.svg" width="50%" alt="google_play_badge">
               </a>
             </div>
           </div>
@@ -43,7 +43,7 @@
           <div class="col-xl-12">
             <p class="copy_right text-center">
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;2020 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              Copyright &copy;2020 All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="noreferrer">Colorlib</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>

@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="mb-20">
-                <img :src="this.book.image" class="img-fluid">
+                <img :src="this.book.image" class="img-fluid" alt="book_image">
                 <p class="text-center mt-2" v-if="!(this.$store.getters.data.user_id == this.book.owner_id)"><i style="font-size:24px; color: red" class="fa fa-map-marker"></i> {{book.distance === 0 ? 'few meters away!' : book.distance + ' km away'}}</p>
               </div>
               <div class="text-center mb-20" v-if="this.$store.getters.data.signedIn && !(this.book.owner_id == this.$store.getters.data.user_id)">

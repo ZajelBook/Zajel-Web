@@ -22,7 +22,7 @@
               <div class="row">
                 <div class="col-sm-3 col-3">
                   <div class="mb-20 text-center">
-                    <img :src="sent.book.image" class="img-fluid mb-3">
+                    <img :src="sent.book.image" class="img-fluid mb-3" alt="borrowed_book">
                     <div v-if="sent.status === 'pending'" class="badge badge-primary" role="alert">
                       {{sent.status}}
                     </div>
