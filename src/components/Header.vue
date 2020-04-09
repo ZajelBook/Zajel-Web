@@ -9,7 +9,7 @@
                 <nav class="main-menu navbar navbar-expand-lg navbar-dark">
                   <div class="logo">
                     <router-link to="/">
-                      <img src="@/assets/img/5.png" alt="" width="60px">
+                      <img src="@/assets/img/5.png" alt="" width="60px" alt="background">
                     </router-link>
                   </div>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

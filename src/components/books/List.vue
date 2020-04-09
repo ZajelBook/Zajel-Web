@@ -31,7 +31,7 @@
                   <router-link :to="'books/by_name/' + book.friendly_id">
                     <div class="single_explorer">
                       <div class="thumb">
-                        <img :src="book.image">
+                        <img :src="book.image" alt="book_image">
                       </div>
                       <div class="explorer_bottom d-flex">
                         <div class="explorer_info">

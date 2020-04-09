@@ -7,15 +7,14 @@
 </template>
 
 <script>
+  import 'jquery'
   import 'jquery-ui'
   import 'bootstrap'
   import 'bootstrap/dist/css/bootstrap.min.css'
   // import 'modernizr'
   import '@/assets/js/imagesloaded.pkgd.min.js'
   import '@/assets/js/wow.min.js'
-  import '@/assets/js/jquery.slicknav.min.js'
   import '@/assets/js/plugins.js'
-  import '@/assets/js/main.js'
   import 'vue-select/dist/vue-select.css';
 
   import Header from './components/Header.vue';

@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="mt-10">
-                            <img :src="this.current_image" width="100px" class="mb-3">
+                            <img :src="this.current_image" width="100px" class="mb-3" alt="book_image">
                             <br>
                             <label for="file-upload" class="custom-file-upload" id="file-upload-label">
                                 <i class="fa fa-cloud-upload"></i> Choose book cover
