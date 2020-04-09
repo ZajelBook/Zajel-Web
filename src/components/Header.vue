@@ -15,7 +15,7 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <div v-if="this.$store.getters.data.signedIn" class="offset-1 col-11 collapse navbar-collapse" id="navbarSupportedContent">
+                  <div v-if="this.$store.getters.data.signedIn" class="offset-1 col-10 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav text-center">
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/">Home</router-link></li>
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books">books</router-link></li>
@@ -30,7 +30,7 @@
                     </ul>
                   </div>
 
-                  <div v-if="!this.$store.getters.data.signedIn" class="offset-4 col-9 collapse navbar-collapse" id="navbarSupportedContent">
+                  <div v-if="!this.$store.getters.data.signedIn" class="offset-4 col-7 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav text-center">
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/">Home</router-link></li>
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books">books</router-link></li>
@@ -103,7 +103,7 @@ export default {
     }
   }
 
-  @media (min-width: 768px) and (max-width: 992px) {
+  @media (min-width: 768px) and (max-width: 991px) {
     .navbar-collapse {
       background: white;
       margin: auto;

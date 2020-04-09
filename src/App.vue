@@ -33,8 +33,6 @@
   @import './assets/css/themify-icons.css';
   @import './assets/css/flaticon.css';
   @import './assets/css/animate.css';
-  @import './assets/css/slick.css';
-  @import './assets/css/slicknav.css';
   @import './assets/css/style.css';
 </style>
 
