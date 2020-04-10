@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import 'jquery'
+  // import 'jquery'
   import 'jquery-ui'
   import 'bootstrap'
   import 'bootstrap/dist/css/bootstrap.min.css'

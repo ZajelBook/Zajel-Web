@@ -93,7 +93,7 @@ export default {
     },
 
     checkSignedIn () {
-      if (this.$store.getters.data.signedIn === 'true') {
+      if (this.$store.getters.data.signedIn === true) {
           this.$router.replace('/');
       }
     }

@@ -8,6 +8,9 @@ import store from './store'
 import router from './router'
 import './cable'
 import moment from 'moment';
+import jquery from 'jquery'
+
+window.$ = jquery;
 Vue.prototype.moment = moment
 Vue.config.productionTip = false
 
@@ -23,8 +26,8 @@ function getPosition(position) {
   store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
 }
 // Vue.http.options.root = "http://localhost:3000/api/";
-// Vue.http.options.root = "https://zajel.mylestone.life/api/";
-Vue.http.options.root = "https://api.zajelbook.com/api/";
+Vue.http.options.root = "https://zajel.mylestone.life/api/";
+// Vue.http.options.root = "https://api.zajelbook.com/api/";
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('access-token', localStorage.accessToken);
   request.headers.set('client', localStorage.client);
