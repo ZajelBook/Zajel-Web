@@ -38,7 +38,10 @@
                 <small>{{this.book.page_count}} pages</small>
                 <small> | by: <b>{{this.book.author}}</b></small>
                 |
-              <div v-if="this.book.status === 'available'" class="badge badge-success" role="alert">
+              <div v-if="this.book.approved === false" class="badge badge-primary" role="alert">
+                Under review
+              </div>
+              <div v-else-if="this.book.status === 'available'" class="badge badge-success" role="alert">
                 {{this.book.status}}
               </div>
               <div v-else-if="this.book.status === 'unavailable'" class="badge badge-danger" role="alert">
@@ -49,7 +52,7 @@
               </div></div>
 
                 <p>{{this.book.language}} | {{this.book.genre}}</p>
-                <p>{{this.book.description}}</p>
+              <span style="white-space: pre-wrap;">{{this.book.description}}</span>
             </div>
           </div>
         </div>

@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description">Published at</label>
+                            <label for="description">Description</label>
                             <textarea class="form-control" id="description" rows="5" placeholder="Book description" v-model="description" required></textarea>
                         </div>
 
