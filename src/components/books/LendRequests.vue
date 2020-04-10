@@ -15,8 +15,11 @@
       <div class="container box_1170">
         <div class="section-top-border">
           <div class="row">
-            <div class="text-center" v-if="!received_requests.length">
-              <p>No received requests</p>
+            <div class="mt-5 offset-3 col-6 text-center" v-if="!received_requests.length" style="height: 300px">
+              <h3>No received requests</h3>
+              <br>
+              <h4>If you haven't added any books yet. why don't you add some?</h4>
+              <router-link class="mt-4 genric-btn primary circle arrow" to="/books/new">Add book</router-link>
             </div>
             <div class="offset-sm-3 col-sm-9 offset-md-2 col-md-8 col-12" v-for="received in received_requests">
               <div class="row">

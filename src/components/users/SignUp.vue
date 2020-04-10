@@ -64,6 +64,8 @@
 </template>
 
 <script>
+import store from "../../store";
+
 export default {
   data(){
     return {
@@ -79,6 +81,12 @@ export default {
     }
   },
   created () {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(getPosition);
+      }
+      function getPosition(position) {
+          store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
+      }
     this.checkSignedIn()
   },
   updated () {
