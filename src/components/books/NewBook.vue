@@ -47,7 +47,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="description">Published at</label>
+              <label for="description">Description</label>
               <textarea class="form-control" id="description" rows="5" placeholder="Book description" v-model="description" required></textarea>
             </div>
 
@@ -129,7 +129,7 @@
         data.append('genre_id', this.genre_id);
         data.append('image', this.image, this.image.name);
         this.$http.post('books', data).then(response => {
-          this.$router.replace('/books/' + response.body.id);
+          this.$router.replace('/books/by_name/' + response.body.friendly_id);
         })
       },
       uploadImage (event) {
