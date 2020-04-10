@@ -23,13 +23,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <tr v-if="!this.notifications.count">
+                                <td colspan="2" class="text-center">no notifications found</td>
+                            </tr>
                             <tr v-for=" notification in notifications">
                                 <td scope="row" class="text-center"><router-link :to="notification.page">{{notification.content}}</router-link></td>
                                 <td><router-link :to="notification.page">{{new Date(notification.created_at).toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' })}}</router-link></td>
                             </tr>
                             </tbody>
                         </table>
-                        <hr>
                         <div class="col-xl-12 page_nation text-center">
                             <paginate
                                     :page-count="this.metadata.total_pages || 1"

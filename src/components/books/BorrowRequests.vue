@@ -15,8 +15,9 @@
       <div class="container box_1170">
         <div class="section-top-border">
           <div class="row">
-            <div class="text-center" v-if="!sent_requests.length">
-              <p>No sent requests</p>
+            <div class="offset-3 col-6 mt-5 text-center" v-if="!sent_requests.length" style="height: 300px">
+              <h3>No sent requests</h3>
+              <router-link class="mt-4 genric-btn primary circle arrow" to="/books">Explore nearby books</router-link>
             </div>
             <div class="offset-sm-3 col-sm-9 offset-md-2 col-md-8 col-12" v-for="sent in sent_requests">
               <div class="row">

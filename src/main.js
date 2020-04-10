@@ -16,13 +16,6 @@ Vue.use(VCalendar);
 Vue.component('paginate', Paginate);
 Vue.component('v-select', vSelect);
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(getPosition);
-}
-function getPosition(position) {
-  store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
-}
-
 // Vue.http.options.root = "http://localhost:3000/api/";
 // Vue.http.options.root = "https://zajel.mylestone.life/api/";
 Vue.http.options.root = "https://api.zajelbook.com/api/";

@@ -22,7 +22,7 @@
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/my_books">My books</router-link></li>
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" :to="{name: 'BorrowRequests'}">Borrow Requests</router-link></li>
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" :to="{name: 'LendRequests'}">Lend Requests</router-link></li>
-                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books/new">Add new book</router-link></li>
+                      <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/books/new">Add book</router-link></li>
                       <li class="nav-item"><router-link class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" to="/notifications">Notifications
                         <span class="badge badge-pill badge-danger">{{this.notificationsCount}}</span>
                       </router-link></li>
