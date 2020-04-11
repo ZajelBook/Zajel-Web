@@ -11,23 +11,31 @@
         </div>
       </div>
     </div>
-    <form class="form-signin" @submit.prevent="signIn">
-      <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" v-model="user.email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" v-model="user.password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <div class="text-center">
-        <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Login</button>
-        <p><span>Don't have an account? </span></p><u><router-link to="/signup" class="text-center">Register here</router-link></u>
+    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+      <form class="form-signin" @submit.prevent="signIn">
+        <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <ValidationProvider vid="email" name="E-mail" rules="required|email" v-slot="{ errors }">
+          <input type="email" v-model="user.email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <span>{{ errors[0] }}</span>
+        </ValidationProvider>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <ValidationProvider vid="password" name="Password" rules="required" v-slot="{ errors }">
+         <input type="password" v-model="user.password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <span>{{ errors[0] }}</span>
+        </ValidationProvider>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div class="text-center">
+          <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Login</button>
+          <p><span>Don't have an account? </span></p><u><router-link to="/signup" class="text-center">Register here</router-link></u>
 
-      </div>
+        </div>
     </form>
+    </ValidationObserver>
   </div>
 </template>
 
@@ -80,7 +88,9 @@ export default {
 
         this.$router.replace('/');
       }, error => {
-        console.log(error);
+        this.$refs.form.setErrors({
+          email: [error.body.errors[0]]
+        });
       }).then(data => {
         this.headers = data
         if(this.$store.getters.data.latitude && this.$store.getters.data.longitude) {

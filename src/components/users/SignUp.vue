@@ -15,22 +15,33 @@
           <div class="row">
               <div class="col-lg-6 col-md-6 offset-md-3 col-10 offset-1">
                   <u><h3 class="mb-30">Register for new account</h3></u>
-                  <form @submit.prevent="signUp">
+                  <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                    <form @submit.prevent="signUp">
                       <div class="mb-3">
-                          <label for="email">Email</label>
-                          <input type="text" class="form-control" id="email" placeholder="Email address" v-model="user.email" required>
+                          <ValidationProvider name="email" rules="required|email" v-slot="{ errors }">
+                              <label for="email">Email</label>
+                              <input type="text" class="form-control" id="email" name="email" placeholder="Email address" v-model="user.email" required>
+                              <span>{{ errors[0] }}</span>
+                          </ValidationProvider>
                       </div>
 
-                      <div class="mb-3">
-                          <label for="password">Password</label>
-                          <input type="password" class="form-control" id="password" placeholder="Password" v-model="user.password" required>
-                      </div>
+                      <ValidationObserver>
+                          <div class="mb-3">
+                              <ValidationProvider rules="confirmed:confirmation" v-slot="{ errors }">
+                                  <label for="password">Password</label>
+                                  <input type="password" class="form-control" id="password" placeholder="Password" v-model="user.password" required minlength="4">
+                                  <span>{{ errors[0] }}</span>
+                              </ValidationProvider>
+                          </div>
 
-                      <div class="mb-3">
-                          <label for="password_confirmation">Password Confirmation</label>
-                          <input type="password" class="form-control" id="password_confirmation" placeholder="Password confirmation" v-model="user.password_confirmation" required>
-                      </div>
-
+                          <div class="mb-3">
+                              <ValidationProvider v-slot="{ errors }" vid="confirmation">
+                                  <label for="password_confirmation">Password Confirmation</label>
+                                  <input type="password" class="form-control" id="password_confirmation" placeholder="Password confirmation" v-model="user.password_confirmation" required>
+                                  <span>{{ errors[0] }}</span>
+                              </ValidationProvider>
+                          </div>
+                      </ValidationObserver>
                       <div class="mb-3">
                           <label for="first_name">First Name</label>
                           <input type="text" class="form-control" id="first_name" placeholder="First name" v-model="user.first_name" required>
@@ -49,7 +60,7 @@
 
                       <div class="mb-3">
                           <label for="phone_number">Birth date</label>
-                          <v-date-picker  :input-props='{placeholder: "Choose date of birth"}' v-model="user.birth_date" :max-date="new Date('2006-12-31')"  />
+                          <v-date-picker  :input-props='{ placeholder: "Choose date of birth" }' v-model="user.birth_date" :max-date="new Date('2009-12-31')"  />
                       </div>
 
                       <div class="mt-10">
@@ -57,6 +68,7 @@
                       </div>
 
                   </form>
+                  </ValidationObserver>
               </div>
           </div>
       </div>
@@ -65,6 +77,18 @@
 
 <script>
 import store from "../../store";
+import { extend } from 'vee-validate';
+import { required, email, confirmed, min } from 'vee-validate/dist/rules';
+
+extend('email', email);
+extend('confirmed', confirmed);
+extend('min', min);
+
+extend('required', {
+    ...required,
+    message: 'This field is required'
+});
+
 
 export default {
   data(){
@@ -112,10 +136,11 @@ export default {
 
         this.$router.replace('/');
       }, error => {
-        console.log(error);
+          this.$refs.form.setErrors({
+              email: [error.body.errors.email[0]]
+          });
       }).then(data => {
         this.headers = data
-        console.log(this.headers)
       })
     },
 
@@ -127,3 +152,10 @@ export default {
   }
 }
 </script>
+
+<style>
+    span {
+        font-size: .9em;
+        color: #f22435;
+    }
+</style>
