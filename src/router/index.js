@@ -5,6 +5,7 @@ import Book from '../components/books/List.vue';
 import MyBook from '../components/books/MyList.vue';
 import SignIn from '../components/users/SignIn.vue';
 import SignUp from '../components/users/SignUp.vue';
+import UserConfirmation from '../components/users/UserConfirmation.vue'
 import BookDetails from '../components/books/BookDetails.vue'
 import NewBook from '../components/books/NewBook.vue'
 import BorrowRequests from '../components/books/BorrowRequests.vue'
@@ -18,6 +19,7 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/', component: Home },
+  { path: '/confirm', component: UserConfirmation },
   { path: '/books', component: Book },
   { path: '/my_books', component: MyBook },
   { path: '/login', component: SignIn },

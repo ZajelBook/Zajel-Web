@@ -134,7 +134,7 @@ export default {
 
         this.$store.commit('signIn', {user_id: response.data.data.id})
 
-        this.$router.replace('/');
+        this.$router.replace('/confirm');
       }, error => {
           this.$refs.form.setErrors({
               email: [error.body.errors.email[0]]
