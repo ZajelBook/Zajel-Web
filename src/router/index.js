@@ -18,15 +18,15 @@ import Notifications from "../components/notifications/List";
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', name: 'Home', component: Home },
   { path: '/confirm', component: UserConfirmation },
-  { path: '/books', component: Book },
+  { path: '/books', name: 'Books', component: Book },
   { path: '/my_books', component: MyBook },
-  { path: '/login', component: SignIn },
-  { path: '/signup', component: SignUp },
+  { path: '/login', name: 'SignIn', component: SignIn },
+  { path: '/signup', name: 'SignUp', component: SignUp },
   { path: '/books/new', component: NewBook },
-  { path: '/books/:id', component: BookDetails },
-  { path: '/books/by_name/:friendly_id', component: BookDetails },
+  { path: '/books/:id', name: 'BookDetails', component: BookDetails },
+  { path: '/books/by_name/:friendly_id', name: 'BookDetails', component: BookDetails },
   { path: '/books/by_name/:friendly_id/edit', component: UpdateBook },
   { path: '/borrow_requests', name: 'BorrowRequests', component: BorrowRequests },
   { path: '/lend_requests', name: 'LendRequests', component: LendRequests },
@@ -34,17 +34,17 @@ const routes = [
   { path: '/conversations/:id/messages', component: Conversations },
   {
     path: '/about',
-    name: 'About',
+    name: 'Static',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/policy',
-    name: 'Policy',
+    name: 'Static',
     component: () => import(/* webpackChunkName: "about" */ '../views/PrivacyPolicy.vue')
   },
   {
     path: '/terms',
-    name: 'Terms',
+    name: 'Static',
     component: () => import(/* webpackChunkName: "about" */ '../views/TermsAndConditions.vue')
   }
 ]

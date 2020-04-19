@@ -102,3 +102,10 @@ export default {
   }
 }
 </script>
+
+<style>
+  span {
+    font-size: .9em;
+    color: #030303;
+  }
+</style>

@@ -49,6 +49,11 @@ Vue.http.interceptors.push((request, next) => {
   });
 });
 
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'SignIn' && to.name !== 'Home' && to.name !== 'Books' && to.name !== 'BookDetails' && to.name !== 'SignUp' && to.name !== 'Static' && !store.getters.data.signedIn) next({ name: 'SignIn' })
+  else next()
+})
+
 new Vue({
   el: '#app',
   components: { App },
