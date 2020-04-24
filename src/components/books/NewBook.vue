@@ -91,7 +91,7 @@
       }
     },
     created () {
-      // @todo move to before enter
+      // @todo move to route before enter
       this.$http.get('metadata/')
       .then(response => {
         this.genres = response.data['genres'];
