@@ -50,10 +50,6 @@ export default {
     function getPosition(position) {
       store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
     }
-    this.checkSignedIn()
-  },
-  updated () {
-    this.checkSignedIn()
   },
   methods: {
     signIn() {
@@ -78,7 +74,11 @@ export default {
           bearer: localStorage.bearer
         })
 
-        this.$router.replace('/');
+        if (this.$route.query.redirect !== undefined && this.$route.query.redirect !== null ) {
+          this.$router.replace(this.$route.query.redirect);
+        } else {
+          this.$router.replace('/');
+        }
       }, error => {
         console.log(error);
       }).then(data => {
@@ -91,13 +91,6 @@ export default {
         }
       })
     },
-
-    checkSignedIn () {
-      if (this.$store.getters.data.signedIn === true) {
-          this.$router.replace('/');
-      }
-    }
-
   }
 }
 </script>

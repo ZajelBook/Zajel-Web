@@ -87,10 +87,6 @@ export default {
       function getPosition(position) {
           store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
       }
-    this.checkSignedIn()
-  },
-  updated () {
-    this.checkSignedIn()
   },
   methods: {
     signUp() {
@@ -118,12 +114,6 @@ export default {
         console.log(this.headers)
       })
     },
-
-    checkSignedIn () {
-      if (this.$store.getters.data.signedIn === 'true') {
-          this.$router.replace('/');
-      }
-    }
   }
 }
 </script>
