@@ -38,20 +38,21 @@
                 <small>{{this.book.page_count}} pages</small>
                 <small> | by: <b>{{this.book.author}}</b></small>
                 |
-              <div v-if="this.book.approved === false" class="badge badge-primary" role="alert">
-                Under review
+                <div v-if="this.book.approved === false" class="badge badge-primary" role="alert">
+                  Under review
+                </div>
+                <div v-else-if="this.book.status === 'available'" class="badge badge-success" role="alert">
+                  {{this.book.status}}
+                </div>
+                <div v-else-if="this.book.status === 'unavailable'" class="badge badge-danger" role="alert">
+                  {{this.book.status}}
+                </div>
+                <div v-else class="badge badge-info" role="alert">
+                  {{this.book.status}}
+                </div>
               </div>
-              <div v-else-if="this.book.status === 'available'" class="badge badge-success" role="alert">
-                {{this.book.status}}
-              </div>
-              <div v-else-if="this.book.status === 'unavailable'" class="badge badge-danger" role="alert">
-                {{this.book.status}}
-              </div>
-              <div v-else class="badge badge-info" role="alert">
-                {{this.book.status}}
-              </div></div>
 
-                <p>{{this.book.language}} | {{this.book.genre}}</p>
+              <p>{{this.book.language}} | {{this.book.genre}}</p>
               <span style="white-space: pre-wrap;">{{this.book.description}}</span>
             </div>
           </div>
@@ -63,49 +64,28 @@
 </template>
 
 <script>
-export default {
-  data(){
-    return {
-      book: {}
-    }
-  },
-  created () {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      let requestParams = {
-        latitude: this.$store.getters.data.latitude,
-        longitude: this.$store.getters.data.longitude
+  export default {
+    data(){
+      return {
+        book: this.$store.getters.data.book
       }
-      this.$http.get('books/by_name/' + this.$route.params.friendly_id, { params: requestParams } )
-      .then(response => {
-        return response.json();
-      }, error => {
-        console.log(error);
-      }).then(data => {
-        this.book = data
-      })
     },
-    borrow (book_id) {
-      this.$http.post('book_activities', {
-        book_id: book_id
-      }).then( response => {
-        this.fetchData()
-      })
+    created () {
+      //
     },
-    cancel (book_id) {
-      this.$http.delete('book_activities/' + book_id ).then( response => {
-        this.fetchData()
-      })
+    methods: {
+      borrow (book_id) {
+        this.$http.post('book_activities', {
+          book_id: book_id
+        }).then( response => {
+          this.fetchData()
+        })
+      },
+      cancel (book_id) {
+        this.$http.delete('book_activities/' + book_id ).then( response => {
+          this.fetchData()
+        })
+      }
     }
   }
-}
 </script>
-
-<style>
-  span {
-    font-size: .9em;
-    color: #030303;
-  }
-</style>

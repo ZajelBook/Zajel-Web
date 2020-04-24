@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from '../store/index'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Book from '../components/books/List.vue';
@@ -21,13 +22,39 @@ const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/confirm', component: UserConfirmation },
   { path: '/books', name: 'Books', component: Book },
-  { path: '/my_books', component: MyBook },
-  { path: '/login', name: 'SignIn', component: SignIn },
-  { path: '/signup', name: 'SignUp', component: SignUp },
-  { path: '/books/new', component: NewBook },
+  { path: '/my_books', component: MyBook, meta: {requiresAuth: true} },
+  { path: '/login', name: 'SignIn', component: SignIn, meta: {requiresAuth: false} },
+  { path: '/signup', name: 'SignUp', component: SignUp, meta: {requiresAuth: false} },
+  { path: '/books/new', component: NewBook, meta: {requiresAuth: true} },
   { path: '/books/:id', name: 'BookDetails', component: BookDetails },
-  { path: '/books/by_name/:friendly_id', name: 'BookDetails', component: BookDetails },
-  { path: '/books/by_name/:friendly_id/edit', component: UpdateBook },
+  {
+    path: '/books/by_name/:friendly_id',
+    name: 'BookDetails',
+    component: BookDetails,
+    beforeEnter: (to, from, next) => {
+      Vue.http.get('books/by_name/' + to.params.friendly_id, {
+        params: {
+          latitude: store.getters.data.latitude,
+          longitude: store.getters.data.longitude
+        }
+      }).then((data) => {
+        store.commit('setBook', data.body);
+        next()
+      }).catch((err) => {
+        // show msg to user that something went wrong
+        console.log(error);
+        next('/')
+      })
+    },
+  },
+  {
+    path: '/books/by_name/:friendly_id/edit',
+    component: UpdateBook,
+    beforeEnter: (to, from, next) => {
+      // @todo
+      next()
+    },
+  },
   { path: '/borrow_requests', name: 'BorrowRequests', component: BorrowRequests },
   { path: '/lend_requests', name: 'LendRequests', component: LendRequests },
   { path: '/notifications', component: Notifications },

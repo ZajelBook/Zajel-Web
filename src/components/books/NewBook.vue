@@ -91,16 +91,12 @@
       }
     },
     created () {
-      if (this.checkSignedIn()) {
-        this.$http.get('metadata/')
-        .then(response => {
-          this.genres = response.data['genres'];
-          this.languages = response.data['languages'];
-        })
-      }
-    },
-    updated () {
-      this.checkSignedIn()
+      // @todo move to route before enter
+      this.$http.get('metadata/')
+              .then(response => {
+                this.genres = response.data['genres'];
+                this.languages = response.data['languages'];
+              })
     },
     methods: {
       setLanguage(value){
@@ -109,14 +105,6 @@
       setGenre(value){
         this.genre_id = value.id
 
-      },
-      checkSignedIn () {
-        if (!this.$store.state.signedIn) {
-          this.$router.push('/login')
-          return false;
-        } else {
-          return true;
-        }
       },
       submit () {
         let data = new FormData();
