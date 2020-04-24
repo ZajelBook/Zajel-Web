@@ -31,6 +31,36 @@ function getPosition(position) {
 // Vue.http.options.root = "http://localhost:3000/api/";
 // Vue.http.options.root = "https://zajel.mylestone.life/api/";
 Vue.http.options.root = "https://api.zajelbook.com/api/";
+
+router.beforeEach((to, from, next) => {
+  // @todo start page loader
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    if (localStorage.signedIn !== 'true') {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else if (to.matched.some(record => record.meta.requiresAuth === false)) {
+    // this route does not requires auth, check if NOT logged in
+    // if logged in, redirect to home page.
+    if (localStorage.signedIn === 'true') {
+      next({path: '/'})
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next() if the requiresAuth is undefined
+  }
+})
+router.afterEach((to, from) => {
+  // @todo stop page loader
+});
+
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('access-token', localStorage.accessToken);
   request.headers.set('client', localStorage.client);
@@ -48,11 +78,6 @@ Vue.http.interceptors.push((request, next) => {
     }
   });
 });
-
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'SignIn' && to.name !== 'Home' && to.name !== 'Books' && to.name !== 'BookDetails' && to.name !== 'SignUp' && to.name !== 'Static' && !store.getters.data.signedIn) next({ name: 'SignIn' })
-  else next()
-})
 
 new Vue({
   el: '#app',

@@ -14,7 +14,8 @@ export default new Vuex.Store({
     bearer: localStorage.bearer,
     latitude: localStorage.latitude,
     longitude: localStorage.longitude,
-    notificationsCount: 0
+    notificationsCount: 0,
+    book: {}
   },
   getters: {
     data: state => {
@@ -26,7 +27,8 @@ export default new Vuex.Store({
         user_id: state.user_id,
         latitude: state.latitude,
         longitude: state.longitude,
-        notificationsCount: state.notificationsCount
+        notificationsCount: state.notificationsCount,
+        book: state.book
       }
     }
   },
@@ -78,6 +80,9 @@ export default new Vuex.Store({
     },
     resetNotificationsCount(state) {
       state.notificationsCount = 0
+    },
+    setBook(state, data) {
+      state.book = data
     }
   }
 })
