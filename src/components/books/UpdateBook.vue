@@ -130,7 +130,6 @@
             },
             setGenre(value){
                 this.genre_id = value.id
-
             },
             submit () {
                 let data = new FormData();
@@ -143,7 +142,6 @@
                 data.append('genre_id', this.genre_id);
                 data.append('image', this.image, this.image.name);
                 this.$http.put('books/' + this.id, data).then(response => {
-                    console.log(response.body);
                     this.$router.replace('/books/by_name/' + response.body.friendly_id);
                 })
             },

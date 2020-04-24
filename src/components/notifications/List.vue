@@ -23,7 +23,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-if="!this.notifications.count">
+                            <tr v-if="!this.notifications.length">
                                 <td colspan="2" class="text-center">no notifications found</td>
                             </tr>
                             <tr v-for=" notification in notifications">
@@ -81,8 +81,10 @@
                             let notificationObject = Object.assign({}, notification);
                             if (notification.payload.type === 'new_message'){
                                 notificationObject.page = 'conversations/'+ notification.payload.conversation_id +'/messages';
+                            } else if (notification.payload.type === 'borrow_request') {
+                                notificationObject.page = 'lend_requests';
                             } else {
-                                notificationObject.page = 'book_activities';
+                                notificationObject.page = 'borrow_requests';
                             }
                             return notificationObject;
                         })

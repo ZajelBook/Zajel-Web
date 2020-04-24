@@ -9,6 +9,7 @@ import router from './router'
 import './cable'
 import moment from 'moment';
 import jquery from 'jquery'
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
 
 window.$ = jquery;
 Vue.prototype.moment = moment
@@ -18,6 +19,8 @@ Vue.use(VueResource);
 Vue.use(VCalendar);
 Vue.component('paginate', Paginate);
 Vue.component('v-select', vSelect);
+Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(getPosition);
@@ -26,8 +29,8 @@ function getPosition(position) {
   store.commit('setLocation', {latitude: position.coords.latitude, longitude: position.coords.longitude})
 }
 // Vue.http.options.root = "http://localhost:3000/api/";
-Vue.http.options.root = "https://zajel.mylestone.life/api/";
-// Vue.http.options.root = "https://api.zajelbook.com/api/";
+// Vue.http.options.root = "https://zajel.mylestone.life/api/";
+Vue.http.options.root = "https://api.zajelbook.com/api/";
 
 router.beforeEach((to, from, next) => {
   // @todo start page loader
@@ -70,6 +73,8 @@ Vue.http.interceptors.push((request, next) => {
 
       store.commit('signOut');
       router.push('/login')
+    } else if (response.status == 403){
+      router.push('/confirm')
     }
   });
 });
