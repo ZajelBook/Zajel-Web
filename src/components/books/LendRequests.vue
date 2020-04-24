@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-9">
                   <h3><router-link :to="'books/by_name/' + received.book.friendly_id">{{received.book.title}}</router-link></h3>
-                  <p><b>{{received.borrower.name}}</b> requested your book {{moment(received.created_at, moment.ISO_8601).fromNow()}}</p>
+                  <p><b>{{received.borrower.name}}</b> requested your book {{formatDistance(new Date(), new Date(received.created_at))}} ago</p>
 
                   <div class="text-center">
                     <button @click="accept" :id="received.id" :class="'m-2 genric-btn info circle accept_' + received.id" v-show="received.status === 'pending'">Accept</button>

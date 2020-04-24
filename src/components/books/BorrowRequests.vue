@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-9">
                   <h3><router-link :to="'books/by_name/' + sent.book.friendly_id">{{sent.book.title}}</router-link></h3>
-                  <p>You have requested <b>{{sent.lender.name}}</b>'s book {{moment(sent.created_at, moment.ISO_8601).fromNow()}}</p>
+                  <p>You have requested <b>{{sent.lender.name}}</b>'s book {{formatDistance(new Date(), new Date(sent.created_at))}} ago</p>
 
                   <div class="text-center">
                     <router-link :id="sent.conversation_id" class="genric-btn success circle" v-show="sent.status === 'accepted'" :to="'/conversations/' + sent.conversation_id +'/messages'">Go to Conversation</router-link>

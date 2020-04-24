@@ -7,12 +7,12 @@ import Vue from "vue";
 import store from './store'
 import router from './router'
 import './cable'
-import moment from 'moment';
+import { formatDistance } from 'date-fns'
 import jquery from 'jquery'
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
 
 window.$ = jquery;
-Vue.prototype.moment = moment
+Vue.prototype.formatDistance = formatDistance
 Vue.config.productionTip = false
 
 Vue.use(VueResource);

@@ -26,7 +26,7 @@ const routes = [
   { path: '/login', name: 'SignIn', component: SignIn, meta: {requiresAuth: false} },
   { path: '/signup', name: 'SignUp', component: SignUp, meta: {requiresAuth: false} },
   { path: '/books/new', component: NewBook, meta: {requiresAuth: true} },
-  { path: '/books/:id', name: 'BookDetails', component: BookDetails },
+  { path: '/books/:id', name: 'BookDetailsById', component: BookDetails },
   {
     path: '/books/by_name/:friendly_id',
     name: 'BookDetails',
@@ -61,17 +61,17 @@ const routes = [
   { path: '/conversations/:id/messages', component: Conversations },
   {
     path: '/about',
-    name: 'Static',
+    name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/policy',
-    name: 'Static',
+    name: 'Policy',
     component: () => import(/* webpackChunkName: "about" */ '../views/PrivacyPolicy.vue')
   },
   {
     path: '/terms',
-    name: 'Static',
+    name: 'Terms',
     component: () => import(/* webpackChunkName: "about" */ '../views/TermsAndConditions.vue')
   }
 ]

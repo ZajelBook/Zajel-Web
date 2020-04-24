@@ -33,12 +33,12 @@
                 <div class="d-flex justify-content-end mb-4"  v-if="message.sender_id == currentUserId">
                 <div class="msg_cotainer_send text-center">
                   {{message.content}}
-                  <span class="msg_time_send">{{moment(message.created_at, moment.ISO_8601).fromNow()}}</span>
+                  <span class="msg_time_send">{{formatDistance(new Date(), new Date(message.created_at))}} ago</span>
                 </div>
               </div>
                 <div class="d-flex justify-content-start mb-4" v-else>
                   <div class="msg_cotainer text-center">
-                    <span class="msg_time">{{moment(message.created_at, moment.ISO_8601).fromNow()}}</span>
+                    <span class="msg_time">{{formatDistance(new Date(), new Date(message.created_at))}} ago</span>
                     {{message.content}}
                   </div>
                 </div>
@@ -126,7 +126,7 @@
           this.$http.post('conversations/' + this.$route.params.id + '/messages', {
             content: this.message
           }).then(response => {
-              $('#message_box').val('')
+            document.getElementById('message_box').value = ''
               this.message = ''
             }, error => {
               console.log(error);

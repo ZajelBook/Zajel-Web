@@ -146,7 +146,7 @@
                 })
             },
             uploadImage (event) {
-                $('#file-selected').text(event.target.files[0].name);
+                document.getElementById("file-selected").textContent = event.target.files[0].name;
                 this.image = event.target.files[0];
                 this.current_image = URL.createObjectURL(event.target.files[0])
             }
