@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nprogress-container></nprogress-container>
     <app-header></app-header>
     <router-view></router-view>
     <app-footer></app-footer>
@@ -25,5 +26,6 @@
 <style>
   @import './assets/css/font-awesome.min.css';
   @import './assets/css/style.css';
+  @import './assets/css/custom.css';
 </style>
 

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    loading: false,
     signedIn: localStorage.signedIn == 'true',
     user_id: localStorage.user_id,
     accessToken: localStorage.accessToken,
