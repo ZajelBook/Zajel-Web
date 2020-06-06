@@ -32,7 +32,7 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button class="genric-btn primary e-large circle btn-block text-center mb-3" type="submit">Login
+                    <button :class="[loading ? 'loading-btn': '', 'genric-btn primary e-large circle btn-block text-center mb-3']" type="submit">Login
                     </button>
                     <p><span>Don't have an account? </span></p><u>
                     <router-link to="/signup" class="text-center">Register here</router-link>
@@ -93,17 +93,16 @@
                         } else {
                             this.$router.replace('/');
                         }
+
+                        if (this.$store.getters.data.latitude && this.$store.getters.data.longitude) {
+                            this.$http.put('users/' + this.$store.getters.data.user_id, {
+                                latitude: this.$store.getters.data.latitude,
+                                longitude: this.$store.getters.data.longitude
+                            })
+                        }
                     }, error => {
                         console.log(error);
-                    }).then(data => {
-                    this.headers = data
-                    if (this.$store.getters.data.latitude && this.$store.getters.data.longitude) {
-                        this.$http.put('users/' + this.$store.getters.data.user_id, {
-                            latitude: this.$store.getters.data.latitude,
-                            longitude: this.$store.getters.data.longitude
-                        })
-                    }
-                })
+                    })
             },
         }
     }

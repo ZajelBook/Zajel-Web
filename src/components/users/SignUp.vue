@@ -64,7 +64,7 @@
                       </div>
 
                       <div class="mt-10">
-                          <button type="submit" class="genric-btn primary circle arrow">Register</button>
+                          <button type="submit" :class="[loading ? 'loading-btn': '', 'genric-btn primary circle arrow']">Register</button>
                       </div>
 
                   </form>

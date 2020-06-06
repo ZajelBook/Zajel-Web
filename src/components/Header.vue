@@ -83,7 +83,7 @@ export default {
             this.$http.delete('auth/sign_out')
             .then(response => {
                 this.$store.commit('signOut')
-                this.$router.push('/');
+                this.$router.push('/').catch(err => {});
             }, error => {
                 console.log(error);
             })
