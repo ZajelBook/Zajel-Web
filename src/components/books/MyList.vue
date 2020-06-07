@@ -15,6 +15,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <h3 class="exp_title text-center" v-if="this.metadata.count">You have added {{this.metadata.count}} books</h3>
+                        <h3 class="exp_title text-center" v-else-if="loading">Loading...</h3>
                         <div class="mt-5 text-center" v-else>
                             <h3 class="exp_title" >You haven't added any books yet. why don't you add some?</h3>
                             <router-link class="genric-btn primary circle arrow" to="/books/new">Add book</router-link>

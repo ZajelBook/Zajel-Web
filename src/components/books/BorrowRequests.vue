@@ -14,7 +14,8 @@
     <div class="whole-wrap">
       <div class="container box_1170">
         <div class="section-top-border">
-          <div class="row">
+          <h3 class="text-center" v-if="loading">Loading...</h3>
+          <div class="row" v-else>
             <div class="offset-3 col-6 mt-5 text-center" v-if="!sent_requests.length" style="height: 300px">
               <h3>No sent requests</h3>
               <router-link class="mt-4 genric-btn primary circle arrow" to="/books">Explore nearby books</router-link>
@@ -77,3 +78,9 @@
     }
   }
 </script>
+
+<style>
+  .whole-wrap {
+    min-height: 300px;
+  }
+</style>

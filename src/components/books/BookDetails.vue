@@ -70,10 +70,21 @@
         book: this.$store.getters.data.book
       }
     },
-    created () {
-      //
-    },
     methods: {
+      fetchData() {
+        let requestParams = {
+          latitude: this.$store.getters.data.latitude,
+          longitude: this.$store.getters.data.longitude
+        }
+        this.$http.get('books/by_name/' + this.$route.params.friendly_id, { params: requestParams } )
+                .then(response => {
+                  return response.json();
+                }, error => {
+                  console.log(error);
+                }).then(data => {
+                  this.book = data
+                })
+      },
       borrow (book_id) {
         this.$http.post('book_activities', {
           book_id: book_id

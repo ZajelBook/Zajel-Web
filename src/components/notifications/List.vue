@@ -15,7 +15,8 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12">
                         <h3 class="exp_title text-center">Notification Center</h3>
-                        <table class="table table-hover">
+                        <h3 class="exp_title text-center" v-if="loading">Loading your list...</h3>
+                        <table class="table table-hover" v-else>
                             <thead>
                             <tr>
                                 <th scope="col" class="text-center">Message</th>

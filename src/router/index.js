@@ -42,7 +42,7 @@ const routes = [
         next()
       }).catch((err) => {
         // show msg to user that something went wrong
-        console.log(error);
+        console.log(err);
         next('/')
       })
     },

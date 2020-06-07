@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-xl-12 col-lg-12">
               <h3 class="exp_title text-center" v-if="!this.$store.getters.data.latitude">Please allow Zajel to access your location</h3>
-              <h3 class="exp_title text-center" v-if="loading">Searching for books nearby...</h3>
+              <h3 class="exp_title text-center" v-if="loading">Loading...</h3>
               <h3 class="exp_title text-center" v-else>{{this.metadata.count}} Books are available nearby</h3>
               <div class="col-xl-12 page_nation text-center">
                 <paginate
