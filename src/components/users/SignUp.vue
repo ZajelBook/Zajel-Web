@@ -143,7 +143,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     span {
         font-size: .9em;
         color: #f22435;

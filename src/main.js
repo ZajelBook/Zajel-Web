@@ -117,7 +117,7 @@ Vue.http.interceptors.push((request, next) => {
         }
         break;
       case 401:
-        Vue.toasted.error(response.data.message);
+        Vue.toasted.error(response.body.errors[0]);
         store.commit('signOut');
         router.push('/login').catch(err => {})
         break;

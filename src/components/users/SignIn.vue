@@ -32,12 +32,10 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button :class="[loading ? 'loading-btn': '', 'genric-btn primary e-large circle btn-block text-center mb-3']" type="submit">Login
+                    <button :class="[loading ? 'loading-btn': '', 'genric-btn primary circle btn-block text-center mb-3 form-control']" type="submit">Login
                     </button>
-                    <p><span>Don't have an account? </span></p><u>
-                    <router-link to="/signup" class="text-center">Register here</router-link>
-                </u>
-
+                    <p><span>Don't have an account? </span></p>
+                    <u><router-link to="/signup" class="text-center">Register here</router-link></u>
                 </div>
             </form>
         </ValidationObserver>
@@ -100,15 +98,13 @@
                                 longitude: this.$store.getters.data.longitude
                             })
                         }
-                    }, error => {
-                        console.log(error);
                     })
             },
         }
     }
 </script>
 
-<style>
+<style scoped>
     .form-signin {
         width: 100%;
         max-width: 330px;
@@ -125,7 +121,7 @@
         box-sizing: border-box;
         height: auto;
         padding: 10px;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .form-signin .form-control:focus {
@@ -143,5 +139,10 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+
+     span {
+         font-size: .9em;
+         color: #f22435;
+     }
 
 </style>
