@@ -28,7 +28,7 @@
               <h3 class="footer_title">
                 Find us on play store
               </h3>
-              <a href="" >
+              <a href="https://play.google.com/store/apps/details?id=com.bernovia.zajel&hl=en">
                 <img src="img/google-play-badge.svg" width="50%" alt="google_play_badge">
               </a>
             </div>
