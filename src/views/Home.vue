@@ -5,7 +5,7 @@
         <div class="row align-items-center justify-content-center">
           <div class="col-xl-10">
             <div class="slider_text text-center justify-content-center">
-
+              <h3>Zajel - Book Sharing</h3>
               <router-link to="/books" class="genric-btn danger circle">Find Nearby Books</router-link>
 <!--              <div class="search_form">-->
 <!--                <form action="#">-->
