@@ -5,6 +5,9 @@ import Home from '../views/Home.vue'
 import Book from '../components/books/List.vue';
 import MyBook from '../components/books/MyList.vue';
 import SignIn from '../components/users/SignIn.vue';
+import UpdatePassword from '../components/users/UpdatePassword.vue';
+import ResetPassword from '../components/users/ResetPassword.vue';
+import ForgetPassword from '../components/users/ForgetPassword.vue';
 import SignUp from '../components/users/SignUp.vue';
 import UserConfirmation from '../components/users/UserConfirmation.vue'
 import BookDetails from '../components/books/BookDetails.vue'
@@ -24,6 +27,9 @@ const routes = [
   { path: '/books', name: 'Books', component: Book },
   { path: '/my_books', component: MyBook, meta: {requiresAuth: true} },
   { path: '/login', name: 'SignIn', component: SignIn, meta: {requiresAuth: false} },
+  { path: '/update_password', name: 'UpdatePassword', component: UpdatePassword},
+  { path: '/reset_password', name: 'ResetPassword', component: ResetPassword, meta: {requiresAuth: false} },
+  { path: '/forget_password', name: 'ForgetPassword', component: ForgetPassword, meta: {requiresAuth: false} },
   { path: '/signup', name: 'SignUp', component: SignUp, meta: {requiresAuth: false} },
   { path: '/books/new', component: NewBook, meta: {requiresAuth: true} },
   { path: '/books/:id', name: 'BookDetailsById', component: BookDetails },

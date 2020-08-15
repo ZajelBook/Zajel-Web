@@ -34,8 +34,8 @@
                 <div class="text-center">
                     <button :class="[loading ? 'loading-btn': '', 'genric-btn primary circle btn-block text-center mb-3 form-control']" type="submit">Login
                     </button>
-                    <p><span>Don't have an account? </span></p>
-                    <u><router-link to="/signup" class="text-center">Register here</router-link></u>
+                    <p><u><router-link to="/signup" class="text-center">Create new account</router-link></u></p>
+                    <p><u><router-link to="/forget_password" class="text-center">Forgot your password?</router-link></u></p>
                 </div>
             </form>
         </ValidationObserver>
