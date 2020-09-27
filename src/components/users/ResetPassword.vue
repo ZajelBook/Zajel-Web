@@ -28,7 +28,7 @@
 <script>
     export default {
         created() {
-            this.$http.get('auth/password/edit', { params: {reset_password_token: this.$route.query.reset_token, redirect_url: 'http://localhost:8080/update_password'} })
+            this.$http.get('auth/password/edit', { params: {reset_password_token: this.$route.query.reset_token, redirect_url: 'https://zajelbook.com/update_password'} })
                 .then(response => {
                     window.location.href = response.data.url
                 })
