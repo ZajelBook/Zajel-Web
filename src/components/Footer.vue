@@ -17,9 +17,9 @@
                 Useful Links
               </h3>
               <ul>
-                <li><router-link to="/about">About</router-link></li>
-                <li><router-link to="/policy">Privacy Policy</router-link></li>
-                <li><router-link to="/terms">Terms of Service</router-link></li>
+                <li><router-link to="/about?locale=en">About</router-link></li>
+                <li><router-link to="/policy?locale=en">Privacy Policy</router-link></li>
+                <li><router-link to="/terms?locale=en">Terms of Service</router-link></li>
               </ul>
             </div>
           </div>

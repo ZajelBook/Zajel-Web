@@ -5437,3 +5437,8 @@ h6 {
     text-overflow: ellipsis;
   }
 }
+
+.ar {
+  direction: rtl;
+  text-align: right;
+}
