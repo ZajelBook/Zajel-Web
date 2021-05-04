@@ -1,8 +1,17 @@
-- name: Copy folder content recursively to remote
-    uses: garygrossgarten/github-action-scp@release
-    with:
-      local: .
-      remote: /home/mylestone/apps/zajel-web
-      host: ${{ secrets.HOST }}
-      username: ${{ secrets.SSH_USER }}
-      privateKey: ${{ secrets.PRIVATE_KEY }}
+name: scp copy folder to remote via SSH
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+            local: .
+            remote: /home/mylestone/apps/zajel-web
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.SSH_USER }}
+            privateKey: ${{ secrets.PRIVATE_KEY }}
