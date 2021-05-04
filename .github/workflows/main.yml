@@ -1,4 +1,4 @@
-name: scp copy folder to remote via SSH
+name: Deploy Zajel Web
 
 on:
   push
@@ -9,10 +9,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: parent working directory
-        run: pwd
-      - name: list files
-        run: ls
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+        - run: npm ci
+        - run: npm run build --if-present
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
