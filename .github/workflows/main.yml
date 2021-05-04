@@ -9,13 +9,11 @@ jobs:
     steps:
       - name: parent working directory
         run: pwd
-      - name: list files
-        run: ls
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-            local: /home/runner/work/Zajel-Web/Zajel-Web/dist
-            remote: /home/mylestone/apps/zajel-web/
+            local: /home/runner/work/Zajel-Web/Zajel-Web/dist/
+            remote: /home/mylestone/apps/zajel-web
             host: ${{ secrets.HOST }}
             username: ${{ secrets.SSH_USER }}
             privateKey: ${{ secrets.PRIVATE_KEY }}
