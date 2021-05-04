@@ -7,8 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: parent working directory
         run: pwd
+      - name: list files
+        run: ls
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
